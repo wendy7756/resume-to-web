@@ -1,162 +1,80 @@
 ---
-import { getCollection } from 'astro:content';
-// Component Imports
-import CallToAction from '../components/CallToAction.astro';
-// Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Skills from '../components/Skills.astro';
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-// Content Fetching: List four most recent work projects
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import Icon from '../components/Icon.astro';
+import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+<BaseLayout title="Resume Templates | Create Stunning Web Resumes" description="Choose from professional templates and create your online resume that stands out. No design skills required.">
+	<div class="landing-page">
+		<!-- Hero Section -->
+		<section class="hero-section">
+			<div class="hero-content">
+				<h1 class="hero-title">
+					100+ Free Resume, CV & Portfolio Templates
+				</h1>
+				
+				<p class="hero-subtitle">
+					Instantly turn your resume into a stunning online web page. No design or coding needed.
+				</p>
+
+				<!-- Search Bar -->
+				<div class="search-container">
+					<div class="search-bar">
+						<Icon icon="paper-plane-tilt" size="1.2em" />
+						<input 
+							type="text" 
+							placeholder="Search templates by job, style, or keyword..."
+							class="search-input"
+						/>
+						<button class="search-button">Search</button>
 					</div>
-				</Hero>
-
-				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
-					width="480"
-					height="620"
-					src="/assets/portrait.jpg"
-				/>
-			</header>
-
-			<Skills />
-		</div>
-
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
 				</div>
 
-				<div class="cta">
-					<CallToAction href="/work/">
-						View All
+				<!-- Stats -->
+				<div class="stats-container">
+					<div class="stat">
+						<Icon icon="github-logo" size="1.1em" />
+						<span>50,000+ users</span>
+					</div>
+					<div class="stat">
+						<Icon icon="heart" size="1.1em" />
+						<span>4.9/5 rating</span>
+					</div>
+					<div class="stat">
+						<Icon icon="arrow-right" size="1.1em" />
+						<span>100+ templates</span>
+					</div>
+				</div>
+
+				<!-- CTA Buttons -->
+				<div class="cta-container">
+					<CallToAction href="/template/">
+						Browse Templates
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
+					<a href="/about/" class="secondary-cta">
+						Learn More
+					</a>
 				</div>
-			</section>
-
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-			</section>
-		</main>
-
-		<ContactCTA />
+			</div>
+		</section>
 	</div>
 </BaseLayout>
 
 <style>
-	.hero {
+	.landing-page {
+		min-height: 80vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 2rem;
-	}
-
-	.roles {
-		display: none;
-	}
-
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
-
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			grid-template-columns: 6fr 4fr;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
-
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
-
-	/* ====================================================== */
-
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
-
-	.with-background {
+		justify-content: center;
+		text-align: center;
+		padding: 2rem 1rem;
 		position: relative;
 	}
 
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
+	.landing-page::before {
+		--hero-bg: var(--bg-image-main);
 
 		content: '';
 		position: absolute;
@@ -175,75 +93,215 @@ const projects = (await getCollection('work'))
 		z-index: -1;
 	}
 
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
+	.hero-section {
+		max-width: 900px;
+		width: 100%;
 	}
 
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
+	.hero-content {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.hero-title {
+		font-size: clamp(2.5rem, 8vw, 5rem);
+		font-weight: 800;
+		line-height: 1.1;
+		color: var(--gray-0);
+		margin: 0;
+	}
+
+	.highlight-web {
+		color: var(--accent-regular);
+	}
+
+	.highlight-resumes {
+		background: linear-gradient(45deg, var(--accent-regular), #9333ea);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		color: var(--accent-regular);
+	}
+
+	.hero-subtitle {
+		font-size: var(--text-lg);
 		color: var(--gray-300);
+		max-width: 600px;
+		line-height: 1.6;
+		margin: 0;
 	}
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
+	.search-container {
+		width: 100%;
+		max-width: 600px;
+		margin: 0.5rem 0;
 	}
 
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
+	.search-bar {
+		display: flex;
+		align-items: center;
+		background: var(--gray-800);
+		border: 1px solid var(--gray-600);
+		border-radius: 3rem;
+		padding: 0.75rem 1rem;
+		gap: 1rem;
+		transition: border-color var(--theme-transition);
+	}
+
+	.search-bar:focus-within {
+		border-color: var(--accent-regular);
+		box-shadow: 0 0 0 2px var(--accent-subtle-overlay);
+	}
+
+	.search-input {
+		flex: 1;
+		background: transparent;
+		border: none;
+		color: var(--gray-0);
+		font-size: var(--text-base);
+		outline: none;
+	}
+
+	.search-input::placeholder {
+		color: var(--gray-400);
+	}
+
+	.search-button {
+		background: var(--accent-regular);
+		color: var(--accent-text-over);
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 2rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition: background-color var(--theme-transition);
+	}
+
+	.search-button:hover {
+		background: var(--accent-dark);
+	}
+
+	.stats-container {
+		display: flex;
+		gap: 2rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 0.5rem 0;
+	}
+
+	.stat {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--gray-300);
+		font-size: var(--text-sm);
+	}
+
+	.cta-container {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin-top: 0.5rem;
+	}
+
+	.secondary-cta {
+		padding: 0.75rem 1.5rem;
+		color: var(--gray-300);
+		text-decoration: none;
+		border: 1px solid var(--gray-600);
+		border-radius: 2rem;
+		transition: 
+			background-color var(--theme-transition),
+			border-color var(--theme-transition);
+	}
+
+	.secondary-cta:hover {
+		background: var(--gray-800);
+		border-color: var(--gray-500);
+	}
+
+	@media (max-width: 768px) {
+		.stats-container {
+			gap: 1rem;
 		}
 
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
+		.stat {
+			font-size: var(--text-xs);
 		}
 
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
+		.search-bar {
+			padding: 0.5rem 0.75rem;
 		}
 
-		.section-header h3 {
-			font-size: var(--text-4xl);
+		.search-button {
+			padding: 0.5rem 1rem;
+			font-size: var(--text-sm);
 		}
 
-		.with-cta .section-header {
-			justify-self: flex-start;
+		.cta-container {
+			flex-direction: column;
+			width: 100%;
+		}
+
+		.secondary-cta {
+			width: 100%;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero-title {
+			font-size: 2.5rem;
+		}
+
+		.search-bar {
+			flex-direction: column;
+			gap: 0.75rem;
 			text-align: left;
 		}
 
-		.gallery {
-			grid-area: gallery;
+		.search-input {
+			width: 100%;
+			padding: 0.5rem;
 		}
 
-		.cta {
-			grid-area: cta;
+		.search-button {
+			width: 100%;
 		}
-	}
 
-	/* ====================================================== */
-
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
-
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
+		.stats-container {
+			flex-direction: column;
+			gap: 0.75rem;
 		}
 	}
 </style>
+
+<script>
+	// Add search functionality
+	document.addEventListener('DOMContentLoaded', () => {
+		const searchInput = document.querySelector('.search-input') as HTMLInputElement;
+		const searchButton = document.querySelector('.search-button') as HTMLButtonElement;
+
+		const performSearch = () => {
+			const query = searchInput.value.trim();
+			if (query) {
+				// Redirect to template page with search query
+				window.location.href = `/template/?search=${encodeURIComponent(query)}`;
+			} else {
+				window.location.href = '/template/';
+			}
+		};
+
+		searchButton.addEventListener('click', performSearch);
+		
+		searchInput.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') {
+				performSearch();
+			}
+		});
+	});
+</script>

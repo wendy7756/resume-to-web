@@ -1,0 +1,219 @@
+---
+import { getCollection } from 'astro:content';
+import ContactCTA from '../components/ContactCTA.astro';
+import Grid from '../components/Grid.astro';
+import Hero from '../components/Hero.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const templates = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+---
+
+<BaseLayout
+	title="Resume Templates | Professional Web Resume Templates"
+	description="Browse our collection of professional resume templates. Choose from modern, creative, and classic designs."
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Resume Templates"
+				tagline="Choose from our collection of professional templates designed to make you stand out from the crowd."
+				align="start"
+			/>
+			
+			<!-- Filter/Search Section -->
+			<div class="filter-section">
+				<div class="search-filter">
+					<input 
+						type="text" 
+						placeholder="Search templates..." 
+						class="filter-search"
+						id="template-search"
+					/>
+				</div>
+				<div class="category-filters">
+					<button class="filter-btn active" data-category="all">All Templates</button>
+					<button class="filter-btn" data-category="modern">Modern</button>
+					<button class="filter-btn" data-category="creative">Creative</button>
+					<button class="filter-btn" data-category="classic">Classic</button>
+					<button class="filter-btn" data-category="minimal">Minimal</button>
+				</div>
+			</div>
+
+			<div id="templates-grid">
+				<Grid variant="offset">
+					{
+						templates.map((template) => (
+							<li class="template-item" data-category="modern">
+								<PortfolioPreview project={template} />
+							</li>
+						))
+					}
+				</Grid>
+			</div>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.filter-section {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.search-filter {
+		display: flex;
+		justify-content: center;
+	}
+
+	.filter-search {
+		width: 100%;
+		max-width: 400px;
+		padding: 0.75rem 1rem;
+		border: 1px solid var(--gray-600);
+		border-radius: 2rem;
+		background: var(--gray-800);
+		color: var(--gray-0);
+		font-size: var(--text-base);
+		outline: none;
+		transition: border-color var(--theme-transition);
+	}
+
+	.filter-search:focus {
+		border-color: var(--accent-regular);
+		box-shadow: 0 0 0 2px var(--accent-subtle-overlay);
+	}
+
+	.filter-search::placeholder {
+		color: var(--gray-400);
+	}
+
+	.category-filters {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.filter-btn {
+		padding: 0.5rem 1rem;
+		border: 1px solid var(--gray-600);
+		border-radius: 2rem;
+		background: var(--gray-800);
+		color: var(--gray-300);
+		font-size: var(--text-sm);
+		cursor: pointer;
+		transition: 
+			background-color var(--theme-transition),
+			border-color var(--theme-transition),
+			color var(--theme-transition);
+	}
+
+	.filter-btn:hover {
+		background: var(--gray-700);
+		border-color: var(--gray-500);
+	}
+
+	.filter-btn.active {
+		background: var(--accent-regular);
+		border-color: var(--accent-regular);
+		color: var(--accent-text-over);
+	}
+
+	.template-item {
+		transition: opacity var(--theme-transition);
+	}
+
+	.template-item.hidden {
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		.filter-section {
+			gap: 1rem;
+		}
+
+		.category-filters {
+			gap: 0.25rem;
+		}
+
+		.filter-btn {
+			font-size: var(--text-xs);
+			padding: 0.375rem 0.75rem;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const searchInput = document.getElementById('template-search') as HTMLInputElement;
+		const filterButtons = document.querySelectorAll('.filter-btn');
+		const templateItems = document.querySelectorAll('.template-item');
+
+		let currentCategory = 'all';
+		let currentSearch = '';
+
+		// Get search query from URL if present
+		const urlParams = new URLSearchParams(window.location.search);
+		const searchQuery = urlParams.get('search');
+		if (searchQuery) {
+			searchInput.value = searchQuery;
+			currentSearch = searchQuery.toLowerCase();
+		}
+
+		function filterTemplates() {
+			templateItems.forEach((item) => {
+				const itemElement = item as HTMLElement;
+				const title = itemElement.querySelector('h3')?.textContent?.toLowerCase() || '';
+				const description = itemElement.querySelector('p')?.textContent?.toLowerCase() || '';
+				const category = itemElement.dataset.category || 'modern';
+
+				const matchesSearch = currentSearch === '' || 
+					title.includes(currentSearch) || 
+					description.includes(currentSearch);
+				const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+				if (matchesSearch && matchesCategory) {
+					itemElement.classList.remove('hidden');
+				} else {
+					itemElement.classList.add('hidden');
+				}
+			});
+		}
+
+		// Search functionality
+		searchInput.addEventListener('input', (e) => {
+			const target = e.target as HTMLInputElement;
+			currentSearch = target.value.toLowerCase();
+			filterTemplates();
+		});
+
+		// Category filter functionality
+		filterButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				// Remove active class from all buttons
+				filterButtons.forEach((btn) => btn.classList.remove('active'));
+				
+				// Add active class to clicked button
+				button.classList.add('active');
+				
+				// Update current category
+				const buttonElement = button as HTMLElement;
+				currentCategory = buttonElement.dataset.category || 'all';
+				
+				// Filter templates
+				filterTemplates();
+			});
+		});
+
+		// Initial filter if search query was provided
+		if (searchQuery) {
+			filterTemplates();
+		}
+	});
+</script>

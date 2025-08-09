@@ -12,151 +12,461 @@ const templates = (await getCollection('work')).sort(
 ---
 
 <BaseLayout
-	title="Resume Templates | Professional Web Resume Templates"
-	description="Browse our collection of professional resume templates. Choose from modern, creative, and classic designs."
+	title="Templates | Explore 1000+ Professional Templates"
+	description="Browse our collection of professional templates. Choose from Resume, Portfolio, Business, Blog, Landing Page, and E-commerce designs."
 >
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="Resume Templates"
-				tagline="Choose from our collection of professional templates designed to make you stand out from the crowd."
-				align="start"
-			/>
-			
-			<!-- Filter/Search Section -->
-			<div class="filter-section">
-				<div class="search-filter">
+	<div class="templates-page">
+		<div class="page-header">
+			<div class="wrapper">
+				<h1 class="page-title">Find Your Favourite Design</h1>
+			</div>
+		</div>
+		
+		<div class="templates-container">
+			<!-- Left Sidebar Filter -->
+			<aside class="filter-sidebar">
+				<!-- Search Bar -->
+				<div class="search-container">
 					<input 
 						type="text" 
 						placeholder="Search templates..." 
-						class="filter-search"
+						class="search-input"
 						id="template-search"
 					/>
 				</div>
-				<div class="category-filters">
-					<button class="filter-btn active" data-category="all">All Templates</button>
-					<button class="filter-btn" data-category="modern">Modern</button>
-					<button class="filter-btn" data-category="creative">Creative</button>
-					<button class="filter-btn" data-category="classic">Classic</button>
-					<button class="filter-btn" data-category="minimal">Minimal</button>
-				</div>
-			</div>
+				
 
-			<div id="templates-grid">
-				<Grid variant="offset">
+				<div class="filter-section">
+					<h3 class="filter-title">Filter</h3>
+					
+					<!-- Categories -->
+					<div class="filter-group">
+						<button class="filter-group-toggle" data-toggle="categories">
+							<span>Categories</span>
+							<span class="toggle-icon">▼</span>
+						</button>
+						<div class="filter-list" id="categories">
+							<button class="filter-option active" data-category="all">All Categories</button>
+							<button class="filter-option" data-category="resume">Resume</button>
+							<button class="filter-option" data-category="portfolio">Portfolio</button>
+							<button class="filter-option" data-category="business">Business</button>
+							<button class="filter-option" data-category="blog">Blog</button>
+							<button class="filter-option" data-category="landing-page">Landing Page</button>
+							<button class="filter-option" data-category="ecommerce">E-commerce</button>
+						</div>
+					</div>
+
+					<!-- Technology -->
+					<div class="filter-group">
+						<button class="filter-group-toggle" data-toggle="technology">
+							<span>Technology</span>
+							<span class="toggle-icon">▼</span>
+						</button>
+						<div class="filter-list" id="technology">
+							<button class="filter-option" data-tech="astro">Astro</button>
+							<button class="filter-option" data-tech="react">React</button>
+							<button class="filter-option" data-tech="vue">Vue</button>
+							<button class="filter-option" data-tech="html">HTML</button>
+							<button class="filter-option" data-tech="tailwind">Tailwind</button>
+							<button class="filter-option" data-tech="bootstrap">Bootstrap</button>
+							<button class="filter-option" data-tech="typescript">TypeScript</button>
+						</div>
+					</div>
+				</div>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="templates-main">
+				<!-- Templates Grid -->
+				<div class="templates-grid" id="templates-grid">
 					{
 						templates.map((template) => (
-							<li class="template-item" data-category="modern">
-								<PortfolioPreview project={template} />
-							</li>
+							<a 
+								href={template.data.demo_url || `https://astro.new/${template.data.title.toLowerCase()}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="template-card-link" 
+								data-category={template.data.category || 'portfolio'} 
+								data-tech={template.data.technology || 'html'}>
+								<div class="template-card">
+									<div class="template-preview">
+										<img src={template.data.img} alt={template.data.img_alt || ''} loading="lazy" />
+										<div class="template-overlay">
+											<div class="demo-button">
+												<span>Try Demo</span>
+												<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+													<path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+											</div>
+										</div>
+									</div>
+									<div class="template-info">
+										<h3 class="template-title">{template.data.title}</h3>
+										<p class="template-description">{template.data.description}</p>
+										<div class="template-footer">
+											<p class="template-author">
+												{template.data.author ? `by ${template.data.author}` : 'by Astro'}
+											</p>
+											<span class="template-badge">Free</span>
+										</div>
+									</div>
+								</div>
+							</a>
 						))
 					}
-				</Grid>
-			</div>
-		</main>
+				</div>
+			</main>
+		</div>
+		
+		<!-- Content Divider -->
+		<div class="content-divider"></div>
+		
 		<ContactCTA />
 	</div>
 </BaseLayout>
 
 <style>
-	.filter-section {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
+	.templates-page {
+		min-height: 100vh;
+	}
+
+	.page-header {
+		background: transparent;
+		border-bottom: 1px solid var(--gray-600);
+		padding: 0 0 5rem 0;
+	}
+
+	.page-title {
+		font-size: var(--text-4xl);
+		font-weight: 600;
+		color: var(--gray-0);
+		margin: 0;
+		text-align: center;
+	}
+
+	.templates-container {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		min-height: calc(100vh - 200px);
+	}
+
+	/* Left Sidebar */
+	.filter-sidebar {
+		background: transparent;
+		border-right: 1px solid var(--gray-600);
+		padding: 2rem 1.5rem;
+		overflow-y: auto;
+	}
+
+	.filter-sidebar .search-container {
 		margin-bottom: 2rem;
 	}
 
-	.search-filter {
-		display: flex;
-		justify-content: center;
-	}
 
-	.filter-search {
+
+	.filter-sidebar .search-input {
 		width: 100%;
-		max-width: 400px;
 		padding: 0.75rem 1rem;
 		border: 1px solid var(--gray-600);
-		border-radius: 2rem;
-		background: var(--gray-800);
+		border-radius: 0.5rem;
+		background: transparent;
 		color: var(--gray-0);
-		font-size: var(--text-base);
+		font-size: var(--text-sm);
 		outline: none;
 		transition: border-color var(--theme-transition);
 	}
 
-	.filter-search:focus {
+	.filter-sidebar .search-input:focus {
 		border-color: var(--accent-regular);
 		box-shadow: 0 0 0 2px var(--accent-subtle-overlay);
 	}
 
-	.filter-search::placeholder {
+	.filter-sidebar .search-input::placeholder {
 		color: var(--gray-400);
 	}
 
-	.category-filters {
-		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-		justify-content: center;
+	.filter-title {
+		color: var(--gray-0);
+		font-size: var(--text-xl);
+		font-weight: 600;
+		margin: 0 0 1.5rem 0;
 	}
 
-	.filter-btn {
-		padding: 0.5rem 1rem;
-		border: 1px solid var(--gray-600);
-		border-radius: 2rem;
-		background: var(--gray-800);
+	.filter-group {
+		margin-bottom: 2rem;
+	}
+
+	.filter-group-toggle {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: none;
+		border: none;
+		color: var(--gray-200);
+		font-size: var(--text-base);
+		font-weight: 500;
+		padding: 0.75rem 0;
+		cursor: pointer;
+	}
+
+	.filter-group-toggle:hover {
+		color: var(--gray-0);
+	}
+
+	.toggle-icon {
+		transition: transform var(--theme-transition);
+	}
+
+	.filter-group-toggle[aria-expanded="true"] .toggle-icon {
+		transform: rotate(180deg);
+	}
+
+	.filter-list {
+		padding: 1rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.filter-option {
+		background: none;
+		border: none;
 		color: var(--gray-300);
 		font-size: var(--text-sm);
+		padding: 0.5rem 0.75rem;
+		text-align: left;
 		cursor: pointer;
-		transition: 
-			background-color var(--theme-transition),
-			border-color var(--theme-transition),
-			color var(--theme-transition);
+		border-radius: 0.375rem;
+		transition: all var(--theme-transition);
 	}
 
-	.filter-btn:hover {
-		background: var(--gray-700);
-		border-color: var(--gray-500);
+	.filter-option:hover {
+		background: var(--gray-800);
+		color: var(--gray-100);
 	}
 
-	.filter-btn.active {
+	.filter-option.active {
 		background: var(--accent-regular);
-		border-color: var(--accent-regular);
 		color: var(--accent-text-over);
 	}
 
-	.template-item {
-		transition: opacity var(--theme-transition);
+	/* Main Content */
+	.templates-main {
+		padding: 2rem;
+		background: transparent;
 	}
 
-	.template-item.hidden {
-		display: none;
+	/* Templates Grid */
+	.templates-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		gap: 2rem;
 	}
 
+	.template-card-link {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+		transition: transform 0.2s ease;
+	}
+
+	.template-card-link:hover {
+		transform: translateY(-2px);
+	}
+
+	.template-card {
+		background: transparent;
+		border-radius: 0.75rem;
+		overflow: hidden;
+		border: 1px solid var(--gray-700);
+		transition: all var(--theme-transition);
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.template-card-link:hover .template-card {
+		box-shadow: var(--shadow-lg);
+		border-color: var(--accent-regular);
+	}
+
+	.template-preview {
+		aspect-ratio: 16 / 10;
+		background: #4A90E2;
+		border-radius: 0;
+		margin: 0;
+		overflow: hidden;
+		position: relative;
+		flex-shrink: 0;
+	}
+
+	.template-preview img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.template-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.7);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+
+	.template-card-link:hover .template-overlay {
+		opacity: 1;
+	}
+
+	.demo-button {
+		background: var(--accent-regular);
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border-radius: 2rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 500;
+		font-size: var(--text-sm);
+		transform: translateY(10px);
+		transition: transform 0.3s ease;
+	}
+
+	.template-card-link:hover .demo-button {
+		transform: translateY(0);
+	}
+
+	.demo-button svg {
+		transition: transform 0.2s ease;
+	}
+
+	.demo-button:hover svg {
+		transform: translateX(2px);
+	}
+
+	.template-info {
+		padding: 1rem 1.25rem 0.8rem;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.template-title {
+		color: var(--gray-0);
+		font-size: var(--text-lg);
+		font-weight: 600;
+		margin: 0 0 0.375rem 0;
+	}
+
+	.template-description {
+		color: var(--gray-300);
+		font-size: var(--text-sm);
+		margin: 0 0 0.3rem 0;
+		line-height: 1.4;
+		flex: 1;
+	}
+
+	.template-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: auto;
+		height: 1.4rem;
+	}
+
+	.template-author {
+		color: var(--gray-400);
+		font-size: 0.7rem;
+		margin: 0;
+	}
+
+	.template-badge {
+		background: var(--accent-regular);
+		color: white;
+		padding: 0.15rem 0.35rem;
+		border-radius: 0.25rem;
+		font-size: 0.65rem;
+		font-weight: 500;
+	}
+
+	/* Mobile Responsive */
 	@media (max-width: 768px) {
-		.filter-section {
+		.templates-container {
+			grid-template-columns: 1fr;
+		}
+
+		.filter-sidebar {
+			display: none; /* Hide sidebar on mobile, could add toggle later */
+		}
+
+		.templates-main {
+			padding: 1rem;
+		}
+
+		.templates-grid {
+			grid-template-columns: 1fr;
 			gap: 1rem;
 		}
 
-		.category-filters {
-			gap: 0.25rem;
+		.page-title {
+			font-size: var(--text-2xl);
 		}
+	}
 
-		.filter-btn {
-			font-size: var(--text-xs);
-			padding: 0.375rem 0.75rem;
-		}
+	/* Hidden state for filtering */
+	.template-card.hidden {
+		display: none;
+	}
+
+	/* Content Divider */
+	.content-divider {
+		width: 100%;
+		height: 1px;
+		background: var(--gray-600);
+		margin: 0;
 	}
 </style>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		const searchInput = document.getElementById('template-search') as HTMLInputElement;
-		const filterButtons = document.querySelectorAll('.filter-btn');
-		const templateItems = document.querySelectorAll('.template-item');
+		const categoryFilters = document.querySelectorAll('[data-category]');
+		const technologyFilters = document.querySelectorAll('[data-tech]');
+		const templateCards = document.querySelectorAll('.template-card-link');
+		const filterToggles = document.querySelectorAll('.filter-group-toggle');
 
 		let currentCategory = 'all';
+		let currentTechnology = '';
 		let currentSearch = '';
+
+		// Initialize filter group toggles
+		filterToggles.forEach((toggle) => {
+			const toggleElement = toggle as HTMLElement;
+			const targetId = toggleElement.dataset.toggle;
+			const targetElement = document.getElementById(targetId!);
+			
+			// Set initial state
+			toggleElement.setAttribute('aria-expanded', 'true');
+			if (targetElement) {
+				targetElement.style.display = 'flex';
+			}
+
+			toggle.addEventListener('click', () => {
+				const isExpanded = toggleElement.getAttribute('aria-expanded') === 'true';
+				toggleElement.setAttribute('aria-expanded', (!isExpanded).toString());
+				
+				if (targetElement) {
+					targetElement.style.display = isExpanded ? 'none' : 'flex';
+				}
+			});
+		});
 
 		// Get search query from URL if present
 		const urlParams = new URLSearchParams(window.location.search);
@@ -167,44 +477,73 @@ const templates = (await getCollection('work')).sort(
 		}
 
 		function filterTemplates() {
-			templateItems.forEach((item) => {
-				const itemElement = item as HTMLElement;
-				const title = itemElement.querySelector('h3')?.textContent?.toLowerCase() || '';
-				const description = itemElement.querySelector('p')?.textContent?.toLowerCase() || '';
-				const category = itemElement.dataset.category || 'modern';
+			templateCards.forEach((card) => {
+				const cardElement = card as HTMLElement;
+				const title = cardElement.querySelector('.template-title')?.textContent?.toLowerCase() || '';
+				const description = cardElement.querySelector('.template-description')?.textContent?.toLowerCase() || '';
+				const author = cardElement.querySelector('.template-author')?.textContent?.toLowerCase() || '';
+				const category = cardElement.dataset.category || '';
+				const technology = cardElement.dataset.tech || '';
 
 				const matchesSearch = currentSearch === '' || 
 					title.includes(currentSearch) || 
-					description.includes(currentSearch);
-				const matchesCategory = currentCategory === 'all' || category === currentCategory;
+					description.includes(currentSearch) ||
+					author.includes(currentSearch) ||
+					category.includes(currentSearch) ||
+					technology.includes(currentSearch);
 
-				if (matchesSearch && matchesCategory) {
-					itemElement.classList.remove('hidden');
+				const matchesCategory = currentCategory === 'all' || category === currentCategory;
+				const matchesTechnology = currentTechnology === '' || technology === currentTechnology;
+
+				if (matchesSearch && matchesCategory && matchesTechnology) {
+					cardElement.classList.remove('hidden');
 				} else {
-					itemElement.classList.add('hidden');
+					cardElement.classList.add('hidden');
 				}
 			});
 		}
 
 		// Search functionality
-		searchInput.addEventListener('input', (e) => {
+		searchInput?.addEventListener('input', (e) => {
 			const target = e.target as HTMLInputElement;
 			currentSearch = target.value.toLowerCase();
 			filterTemplates();
 		});
 
 		// Category filter functionality
-		filterButtons.forEach((button) => {
-			button.addEventListener('click', () => {
-				// Remove active class from all buttons
-				filterButtons.forEach((btn) => btn.classList.remove('active'));
+		categoryFilters.forEach((filter) => {
+			filter.addEventListener('click', () => {
+				// Remove active class from all category filters
+				categoryFilters.forEach((btn) => btn.classList.remove('active'));
 				
-				// Add active class to clicked button
-				button.classList.add('active');
+				// Add active class to clicked filter
+				filter.classList.add('active');
 				
 				// Update current category
-				const buttonElement = button as HTMLElement;
-				currentCategory = buttonElement.dataset.category || 'all';
+				const filterElement = filter as HTMLElement;
+				currentCategory = filterElement.dataset.category || 'all';
+				
+				// Filter templates
+				filterTemplates();
+			});
+		});
+
+		// Technology filter functionality
+		technologyFilters.forEach((filter) => {
+			filter.addEventListener('click', () => {
+				// Toggle active state for technology filters
+				const filterElement = filter as HTMLElement;
+				const isActive = filter.classList.contains('active');
+				
+				if (isActive) {
+					filter.classList.remove('active');
+					currentTechnology = '';
+				} else {
+					// Remove active from all tech filters
+					technologyFilters.forEach((btn) => btn.classList.remove('active'));
+					filter.classList.add('active');
+					currentTechnology = filterElement.dataset.tech || '';
+				}
 				
 				// Filter templates
 				filterTemplates();

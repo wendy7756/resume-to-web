@@ -1,0 +1,13 @@
+{
+  "total": 5,
+  "templates": [
+    "basics",
+    "blog",
+    "portfolio",
+    "starlog",
+    "starlight"
+  ],
+  "location": "./astro-templates/",
+  "copied_at": "2025-08-09T15:48:01.538Z",
+  "source": "https://github.com/withastro/astro/tree/main/examples"
+}

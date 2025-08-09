@@ -1,0 +1,34 @@
+{
+  "total": 5,
+  "source": "Astro Official Featured",
+  "description": "Astro官网展示的精选模版",
+  "website": "https://astro.build",
+  "generated": "2025-08-09T16:18:26.364Z",
+  "templates": [
+    {
+      "name": "basics",
+      "displayName": "Welcome to Astro",
+      "category": "portfolio"
+    },
+    {
+      "name": "blog",
+      "displayName": "Blog",
+      "category": "blog"
+    },
+    {
+      "name": "portfolio",
+      "displayName": "Portfolio",
+      "category": "portfolio"
+    },
+    {
+      "name": "starlight",
+      "displayName": "Starlight",
+      "category": "blog"
+    },
+    {
+      "name": "starlog",
+      "displayName": "Starlog",
+      "category": "blog"
+    }
+  ]
+}

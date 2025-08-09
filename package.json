@@ -7,7 +7,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fetch-templates": "node scripts/fetch-templates.js",
+    "fetch-astro-official": "node scripts/fetch-astro-official.js",
+    "fetch-astro-featured": "node scripts/fetch-astro-featured.js",
+    "create-preview-images": "node scripts/create-preview-images.js",
+    "clone-astro-templates": "node scripts/clone-astro-templates.js",
+    "analyze-templates": "node scripts/simple-clone-templates.js",
+    "clone-portfolio-complete": "node scripts/complete-clone-portfolio.js",
+    "setup-templates": "npm run create-preview-images && npm run fetch-astro-featured",
+    "update-templates": "npm run fetch-astro-featured"
   },
   "dependencies": {
     "astro": "^5.12.5"

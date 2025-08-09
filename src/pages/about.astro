@@ -13,10 +13,78 @@ import Skills from '../components/Skills.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Content Fetching: List four most recent work projects
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+// Content Fetching: List four most recent work projects (unused after personal content update)
+// const oldProjects = (await getCollection('work'))
+// 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+// 	.slice(0, 4);
+
+// Work Experience data
+const workExperience = [
+	{
+		id: 'resumehub-frontend',
+		data: {
+			title: 'Frontend Developer at ResumeHub',
+			img: '/assets/stock-1.jpg',
+			img_alt: 'ResumeHub Frontend Development'
+		}
+	},
+	{
+		id: 'freelance-web-dev',
+		data: {
+			title: 'Freelance Web Developer',
+			img: '/assets/stock-2.jpg', 
+			img_alt: 'Freelance Web Development'
+		}
+	}
+];
+
+// iOS Apps data (按你要求的顺序排列)
+const iosApps = [
+	{
+		id: 'three-pages-daily',
+		title: '3 Pages Daily',
+		description: 'Minimal Daily Journal',
+		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7c/0a/48/7c0a48c6-4536-5064-03ff-91f77e05f6af/8.png/0x0ss.png',
+		url: 'https://apps.apple.com/us/app/3-pages-daily-minimal-journal/id6744717008'
+	},
+	{
+		id: 'mirrorcam',
+		title: 'Mirrorcam',
+		description: 'Reference Camera Tool',
+		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/48/7a/f4/487af4ef-68ed-086a-ad9f-3a64310a5f9f/15.png/0x0ss.png',
+		url: 'https://apps.apple.com/us/app/mirrorcam-reference-camera/id6745373013'
+	},
+	{
+		id: 'newsmood',
+		title: 'Newsmood',
+		description: 'AI News Sentiment Analysis',
+		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bd/36/fa/bd36fab3-6597-6031-7e20-4ec74f4a4537/5.png/0x0ss.png',
+		url: 'https://apps.apple.com/us/app/newsmood-ai-news-sentiment/id6744967206'
+	},
+	{
+		id: 'ai-coverletter',
+		title: 'AI Coverletter Maker',
+		description: 'Smart Job Applications',
+		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d2/33/a2/d233a228-6fc6-94c3-17c4-e55718a9de70/app-2.png/0x0ss.png',
+		url: 'https://apps.apple.com/us/app/ai-cover-letter-maker/id6744460792'
+	},
+	{
+		id: 'ai-resume',
+		title: 'AI Resume Revise',
+		description: 'Professional Resume Builder',
+		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/be/e9/d0/bee9d08e-ea56-7f3b-ac4d-d3d8f3d29449/1.png/0x0ss.png',
+		url: 'https://apps.apple.com/us/app/ai-resume-revise/id6744333973'
+	},
+	{
+		id: 'please-dont',
+		title: 'Please Don\'t',
+		description: 'Display Messages Control',
+		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/92/7b/b4/927bb421-5cc0-3df3-66c5-ecf496b27c5b/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-04-30_at_11.23.52.png/0x0ss.png',
+		url: 'https://apps.apple.com/us/app/please-dont-display-messages/id6744848735'
+	}
+];
+
+
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -26,17 +94,29 @@ const projects = (await getCollection('work'))
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero
-					title="Hello, my name is Wendy"
-					tagline="Passionate software engineer with experience in web development, resume automation, and portfolio site building. Skilled in JavaScript, TypeScript, Astro, and modern web technologies. Dedicated to helping users create beautiful online resumes and portfolios with ease."
-					align="start"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="strategy" size="1.33em" /> Designer</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Creator</Pill>
+				<div class="hero-content">
+					<Hero
+						title="Hi, this is Wendy"
+						tagline="A full-stack creator & growth strategist who transforms ideas into real products by blending product sense, technical execution, and data-driven growth."
+						align="start"
+					/>
+
+					<!-- All tags in unified structure -->
+					<div class="all-tags">
+						<div class="main-roles">
+							<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
+							<Pill><Icon icon="strategy" size="1.33em" /> Product Designer</Pill>
+							<Pill><Icon icon="pencil-line" size="1.33em" /> Creator</Pill>
+						</div>
+						<div class="achievement-tags">
+							<Pill><Icon icon="pencil-line" size="1.33em" /> Published author on Jinjiang Literature City with 3 completed novels</Pill>
+							<Pill><Icon icon="microphone-stage" size="1.33em" /> Veteran Film critic with over 10,000 followers on Douban.</Pill>
+							<a href="https://blog.csdn.net/weixin_43886356" target="_blank" rel="noopener noreferrer" class="pill-link">
+								<Pill><Icon icon="trophy" size="1.33em" /> Tech blogger on CSDN with over 10,000 followers</Pill>
+							</a>
+						</div>
 					</div>
-				</Hero>
+				</div>
 
 				<img
 					alt="wendy - Resume Template Designer & Developer"
@@ -56,43 +136,42 @@ const projects = (await getCollection('work'))
 					<p>See my recent roles and achievements below.</p>
 				</header>
 				<div class="gallery">
-					<div class="content">
-						<p><b>Frontend Developer</b><br />ResumeHub, Remote<br />2022.06 – Present</p>
-						<ul>
-							<li>Developed and maintained the ResumeHub platform for online resume and portfolio generation.</li>
-							<li>Built 100+ free templates for resumes, CVs, and portfolios.</li>
-							<li>Improved user experience and SEO for thousands of users.</li>
-						</ul>
-						<p><b>Web Developer</b><br />Freelance<br />2020.01 – 2022.05</p>
-						<ul>
-							<li>Delivered custom web solutions for clients in various industries.</li>
-							<li>Specialized in personal branding sites and online CVs.</li>
-						</ul>
-					</div>
+					<Grid variant="offset">
+						{
+							workExperience.map((work) => (
+								<li class="work-item">
+									<div class="card">
+										<span class="title">{work.data.title}</span>
+										<img src={work.data.img} alt={work.data.img_alt || ''} loading="lazy" decoding="async" />
+									</div>
+								</li>
+							))
+						}
+					</Grid>
 				</div>
 			</section>
-			<section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Projects</h3>
-					<p>Highlighted projects from my recent work.</p>
+
+			<section class="section ios-apps-section">
+				<header class="section-header stack gap-2 lg:gap-4 center-header">
+					<h3>My Independently Developed Apps</h3>
+					<p>Six iOS applications built from concept to App Store, showcasing innovation in productivity and AI-powered tools.</p>
 				</header>
-				<div class="gallery">
-					<div class="content">
-						<p><b>ResumeHub</b><br />A platform that allows users to instantly turn their resume into a professional online web page using 100+ free templates.</p>
-						<p><b>Portfolio Generator</b><br />A tool for designers and developers to showcase their work online with customizable templates.</p>
-					</div>
-				</div>
-			</section>
-			<section>
-				<h2 class="section-title">Skills</h2>
-				<div class="content">
-					<ul>
-						<li>JavaScript / TypeScript</li>
-						<li>Astro / React</li>
-						<li>HTML / CSS / SCSS</li>
-						<li>Responsive Design</li>
-						<li>SEO Optimization</li>
-					</ul>
+				<div class="ios-apps-grid">
+					{
+						iosApps.map((app) => (
+							<a href={app.url} target="_blank" rel="noopener noreferrer" class="app-card-link">
+								<div class="app-card">
+									<div class="app-image-container">
+										<img src={app.img} alt={`${app.title} app icon`} class="app-image" loading="lazy" decoding="async" />
+									</div>
+									<div class="app-info">
+										<h4 class="app-title">{app.title}</h4>
+										<p class="app-description">{app.description}</p>
+									</div>
+								</div>
+							</a>
+						))
+					}
 				</div>
 			</section>
 		</main>
@@ -109,16 +188,17 @@ const projects = (await getCollection('work'))
 		gap: 2rem;
 	}
 
-	.roles {
-		display: none;
-	}
-
 	.hero img {
 		aspect-ratio: 5 / 4;
 		object-fit: cover;
 		object-position: top;
 		border-radius: 1.5rem;
 		box-shadow: var(--shadow-md);
+	}
+
+	/* Unified tags structure */
+	.all-tags {
+		display: none;
 	}
 
 	@media (min-width: 50em) {
@@ -129,16 +209,172 @@ const projects = (await getCollection('work'))
 			gap: 3.75rem;
 		}
 
-		.roles {
-			margin-top: 0.5rem;
+		.hero-content {
 			display: flex;
-			gap: 0.5rem;
+			flex-direction: column;
 		}
 
 		.hero img {
 			aspect-ratio: 3 / 4;
 			border-radius: 4.5rem;
 			object-fit: cover;
+		}
+
+		.all-tags {
+			display: block;
+			margin-top: 1.5rem;
+		}
+
+		.main-roles {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			margin-bottom: 0.75rem;
+		}
+
+		.achievement-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+		}
+
+		.pill-link {
+			text-decoration: none;
+			color: inherit;
+			transition: opacity 0.2s ease;
+		}
+
+		.pill-link:hover {
+			opacity: 0.8;
+		}
+	}
+
+	/* ====================================================== */
+	/* iOS Apps Section */
+	
+	.ios-apps-section {
+		margin-top: 2rem;
+	}
+
+	.center-header {
+		text-align: center;
+	}
+
+	.ios-apps-grid {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 2rem 1rem;
+		margin-top: 2rem;
+		justify-items: center;
+	}
+
+	.app-card-link {
+		text-decoration: none;
+		color: inherit;
+		transition: transform 0.2s ease;
+	}
+
+	.app-card-link:hover {
+		transform: translateY(-4px);
+	}
+
+	.app-card {
+		text-align: center;
+		transition: transform 0.2s ease;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.app-image-container {
+		border-radius: 20px;
+		overflow: hidden;
+		margin-bottom: 0.75rem;
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		width: 215px;
+		height: 466px;
+	}
+
+	.app-image {
+		width: 215px;
+		height: 466px;
+		border-radius: 20px;
+		display: block;
+	}
+
+	.app-info {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.app-title {
+		font-size: var(--text-lg);
+		font-weight: 600;
+		color: var(--gray-0);
+		margin: 0 0 0.5rem 0;
+		line-height: 1.2;
+	}
+
+	.app-description {
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+		margin: 0;
+		line-height: 1.4;
+	}
+
+	/* 大屏桌面端：更宽松的间距 */
+	@media (min-width: 80em) {
+		.ios-apps-grid {
+			grid-template-columns: repeat(6, 1fr);
+			gap: 2.5rem 3rem;
+			max-width: 1200px;
+			margin: 2rem auto 0;
+		}
+	}
+
+	/* 桌面端：保持3列两行 */
+	@media (min-width: 50em) and (max-width: 79.99em) {
+		.ios-apps-grid {
+			grid-template-columns: repeat(6, 1fr);
+			gap: 2.5rem 2rem;
+			max-width: 1000px;
+			margin: 2rem auto 0;
+		}
+
+		.app-image-container {
+			border-radius: 18px;
+		}
+
+		.app-image {
+			border-radius: 18px;
+		}
+	}
+
+	/* 中等屏幕：调整间距 */
+	@media (min-width: 769px) and (max-width: 49.99em) {
+		.ios-apps-grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem 1.5rem;
+		}
+	}
+
+	/* 平板端：2列展示 */
+	@media (max-width: 768px) and (min-width: 481px) {
+		.ios-apps-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2rem 2rem;
+		}
+	}
+
+	/* 手机端：1列展示 */
+	@media (max-width: 480px) {
+		.ios-apps-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
 		}
 	}
 
@@ -168,7 +404,7 @@ const projects = (await getCollection('work'))
 			url('/assets/backgrounds/noise.png') top center/220px repeat,
 			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
 			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
+		background-blend-mode: overlay, normal, normal;
 		mix-blend-mode: var(--bg-blend-mode);
 		z-index: -1;
 	}
@@ -242,6 +478,62 @@ const projects = (await getCollection('work'))
 		.mention-card {
 			border-radius: 1.5rem;
 			height: 9.5rem;
+		}
+	}
+
+	/* ====================================================== */
+	/* Card styles for work and project experience */
+	
+	.work-item {
+		transition: opacity var(--theme-transition);
+	}
+
+	.card {
+		display: grid;
+		grid-template: auto 1fr / auto 1fr;
+		height: 11rem;
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		overflow: hidden;
+		box-shadow: var(--shadow-sm);
+		text-decoration: none;
+		font-family: var(--font-brand);
+		font-size: var(--text-lg);
+		font-weight: 500;
+		transition: box-shadow var(--theme-transition);
+		cursor: pointer;
+	}
+
+	.card:hover {
+		box-shadow: var(--shadow-md);
+	}
+
+	.card .title {
+		grid-area: 1 / 1 / 2 / 2;
+		z-index: 1;
+		margin: 0.5rem;
+		padding: 0.5rem 1rem;
+		background: var(--gray-999);
+		color: var(--gray-200);
+		border-radius: 0.375rem;
+	}
+
+	.card img {
+		grid-area: 1 / 1 / 3 / 3;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	@media (min-width: 50em) {
+		.card {
+			height: 22rem;
+			border-radius: 1.5rem;
+		}
+
+		.card .title {
+			border-radius: 0.9375rem;
 		}
 	}
 </style>

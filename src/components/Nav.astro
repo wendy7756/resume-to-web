@@ -28,7 +28,7 @@ const isCurrentPage = (href: string) => {
 <nav>
 	<div class="menu-header">
 		<a href="/" class="site-title">
-			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
+			<img src="/logo.png" alt="ResumeHub Logo" class="logo-img" />
 			ResumeHub
 		</a>
 		<menu-button>
@@ -365,6 +365,14 @@ const isCurrentPage = (href: string) => {
 	.whatsapp-img {
 		width: var(--icon-size);
 		height: var(--icon-size);
+		object-fit: contain;
+		display: block;
+	}
+
+	/* Logo image styles */
+	.logo-img {
+		width: 1.6em;
+		height: 1.6em;
 		object-fit: contain;
 		display: block;
 	}

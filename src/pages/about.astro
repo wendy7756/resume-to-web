@@ -150,11 +150,13 @@ const iosApps = [
 					</Grid>
 				</div>
 			</section>
+		</main>
 
-			<section class="section ios-apps-section">
+		<section class="section ios-apps-section">
+			<div class="wrapper">
 				<header class="section-header stack gap-2 lg:gap-4 center-header">
-					<h3>My Independently Developed Apps</h3>
-					<p>Six iOS applications built from concept to App Store, showcasing innovation in productivity and AI-powered tools.</p>
+					<h3>My Self-built iOS Apps</h3>
+					<p>I independently developed and launched six iOS applications that succeeded in a competitive market. Each app achieved over 2,000 impressions and 50+ downloads—a direct result of effective App Store Optimization (ASO) and a user-centric design approach.</p>
 				</header>
 				<div class="ios-apps-grid">
 					{
@@ -173,11 +175,12 @@ const iosApps = [
 						))
 					}
 				</div>
-			</section>
-		</main>
+			</div>
+		</section>
 
 		<ContactCTA />
 	</div>
+
 </BaseLayout>
 
 <style>
@@ -254,18 +257,56 @@ const iosApps = [
 	
 	.ios-apps-section {
 		margin-top: 2rem;
+		width: 100%; /* 与 wrapper 对齐 */
+		display: block !important;
 	}
 
-	.center-header {
-		text-align: center;
+	.ios-apps-section .section-header {
+		text-align: center !important;
+		justify-self: center;
+		align-self: center;
+		width: 100%;
+		max-width: none !important;
+		margin-bottom: 3rem;
+	}
+
+	/* 大屏幕上增加更多间距 */
+	@media (min-width: 50em) {
+		.ios-apps-section .section-header {
+			margin-bottom: 4rem;
+		}
+
+		.ios-apps-section .section-header h3 {
+			margin: 0 auto 2rem auto !important;
+		}
+
+		.ios-apps-grid {
+			padding: 0; /* 桌面端移除padding */
+		}
+	}
+
+	.ios-apps-section .section-header h3 {
+		text-align: center !important;
+		margin: 0 auto 1.5rem auto !important;
+		width: 100% !important;
+		line-height: 1.1;
+	}
+
+	.ios-apps-section .section-header p {
+		text-align: center !important;
+		margin: 0 auto !important;
+		width: 100% !important;
 	}
 
 	.ios-apps-grid {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		gap: 2rem 1rem;
-		margin-top: 2rem;
-		justify-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 0.75rem; /* 更紧凑的卡片间距 */
+		margin: 2rem 0 0 0;
+		justify-content:space-between ; /* 居中分摊左右剩余空间 */
+		align-items: flex-start;
+		width: 100%;
+		padding: 0; /* 由 wrapper 控制左右边距 */
 	}
 
 	.app-card-link {
@@ -285,23 +326,29 @@ const iosApps = [
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: flex-start;
+		width: 150px;
+		flex-shrink: 0;
 	}
 
 	.app-image-container {
 		border-radius: 20px;
 		overflow: hidden;
-		margin-bottom: 0.75rem;
+		margin: 0 auto 0.75rem auto;
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-		width: 215px;
-		height: 466px;
+		width: 100%;
+		max-width: 180px;
+		aspect-ratio: 215 / 466;
+		display: block;
 	}
 
 	.app-image {
-		width: 215px;
-		height: 466px;
+		width: 100%;
+		height: 100%;
 		border-radius: 20px;
 		display: block;
+		object-fit: cover;
 	}
 
 	.app-info {
@@ -317,6 +364,7 @@ const iosApps = [
 		color: var(--gray-0);
 		margin: 0 0 0.5rem 0;
 		line-height: 1.2;
+		text-align: center;
 	}
 
 	.app-description {
@@ -324,57 +372,85 @@ const iosApps = [
 		color: var(--gray-400);
 		margin: 0;
 		line-height: 1.4;
+		text-align: center;
 	}
 
-	/* 大屏桌面端：更宽松的间距 */
-	@media (min-width: 80em) {
+	/* 超大屏幕：支持6个应用一行 */
+	@media (min-width: 100em) {
 		.ios-apps-grid {
-			grid-template-columns: repeat(6, 1fr);
-			gap: 2.5rem 3rem;
-			max-width: 1200px;
-			margin: 2rem auto 0;
+			gap: 2rem 1.25rem; /* 减小横向间距 */
+			padding: 0; /* 超大屏移除padding */
 		}
-	}
-
-	/* 桌面端：保持3列两行 */
-	@media (min-width: 50em) and (max-width: 79.99em) {
-		.ios-apps-grid {
-			grid-template-columns: repeat(6, 1fr);
-			gap: 2.5rem 2rem;
-			max-width: 1000px;
-			margin: 2rem auto 0;
+		.app-card {
+			width: 180px;
 		}
-
 		.app-image-container {
-			border-radius: 18px;
-		}
-
-		.app-image {
-			border-radius: 18px;
+			max-width: 180px;
 		}
 	}
 
-	/* 中等屏幕：调整间距 */
-	@media (min-width: 769px) and (max-width: 49.99em) {
+	/* 大屏幕：微调间距和容器尺寸，支持6个应用 */
+	@media (min-width: 80em) and (max-width: 99.99em) {
 		.ios-apps-grid {
-			grid-template-columns: repeat(3, 1fr);
-			gap: 2rem 1.5rem;
+			gap: 1.75rem 1rem; /* 更紧凑 */
+		}
+		.app-card {
+			width: 170px;
+		}
+		.app-image-container {
+			max-width: 170px;
 		}
 	}
 
-	/* 平板端：2列展示 */
-	@media (max-width: 768px) and (min-width: 481px) {
+	/* 桌面端：标准布局，支持5个应用 */
+	@media (min-width: 60em) and (max-width: 79.99em) {
 		.ios-apps-grid {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 2rem 2rem;
+			gap: 1.6rem 0.9rem; /* 更紧凑 */
+		}
+		.app-card {
+			width: 155px;
+		}
+		.app-image-container {
+			max-width: 155px;
 		}
 	}
 
-	/* 手机端：1列展示 */
-	@media (max-width: 480px) {
+	/* 中等屏幕：紧凑布局 */
+	@media (min-width: 48em) and (max-width: 59.99em) {
 		.ios-apps-grid {
-			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 1.4rem 0.8rem; /* 更紧凑 */
+		}
+		.app-card {
+			width: 150px;
+		}
+		.app-image-container {
+			max-width: 160px;
+		}
+	}
+
+	/* 平板端：优化间距 */
+	@media (max-width: 47.99em) and (min-width: 36em) {
+		.ios-apps-grid {
+			gap: 1.5rem 1rem;
+		}
+		.app-card {
+			width: 140px;
+		}
+		.app-image-container {
+			max-width: 150px;
+		}
+	}
+
+	/* 手机端：最小间距 */
+	@media (max-width: 35.99em) {
+		.ios-apps-grid {
+			gap: 1rem 0.6rem; /* 更紧凑 */
+		}
+		.app-card {
+			width: 130px;
+		}
+		.app-image-container {
+			max-width: 140px;
 		}
 	}
 

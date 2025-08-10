@@ -16,7 +16,7 @@ technology: astro
 author: Astro
 author_url: https://github.com/withastro/astro
 github_url: https://github.com/withastro/starlight
-demo_url: https://starlight.astro.build
+demo_url: https://astro.build/themes/details/starlight/
 license: MIT License
 stars: 52700
 is_official: true

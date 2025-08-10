@@ -91,14 +91,6 @@ const templates = (await getCollection('work')).sort(
 								<div class="template-card">
 									<div class="template-preview">
 										<img src={template.data.img} alt={template.data.img_alt || ''} loading="lazy" />
-										<div class="template-overlay">
-											<div class="demo-button">
-												<span>Try Demo</span>
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-													<path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</div>
-										</div>
 									</div>
 									<div class="template-info">
 										<h3 class="template-title">{template.data.title}</h3>
@@ -307,49 +299,7 @@ const templates = (await getCollection('work')).sort(
 		object-fit: cover;
 	}
 
-	.template-overlay {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, 0.7);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
 
-	.template-card-link:hover .template-overlay {
-		opacity: 1;
-	}
-
-	.demo-button {
-		background: var(--accent-regular);
-		color: white;
-		padding: 0.75rem 1.5rem;
-		border-radius: 2rem;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-weight: 500;
-		font-size: var(--text-sm);
-		transform: translateY(10px);
-		transition: transform 0.3s ease;
-	}
-
-	.template-card-link:hover .demo-button {
-		transform: translateY(0);
-	}
-
-	.demo-button svg {
-		transition: transform 0.2s ease;
-	}
-
-	.demo-button:hover svg {
-		transform: translateX(2px);
-	}
 
 	.template-info {
 		padding: 1rem 1.25rem 0.8rem;

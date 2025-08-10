@@ -18,22 +18,68 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // 	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
 // 	.slice(0, 4);
 
-// Work Experience data
-const workExperience = [
+// Academic Research data
+const academicResearch = [
 	{
-		id: 'resumehub-frontend',
+		id: 'social-media-stock',
 		data: {
-			title: 'Frontend Developer at ResumeHub',
-			img: '/assets/stock-1.jpg',
-			img_alt: 'ResumeHub Frontend Development'
+			title: 'Social Media Impact on Stock Market Analysis',
+			img: 'https://wendy7756.github.io/my-research/pic-socialmedia.png',
+			img_alt: 'Social Media Stock Market Research',
+			url: 'https://wendy7756.github.io/my-research/CN-socailmedia.pdf'
 		}
 	},
 	{
-		id: 'freelance-web-dev',
+		id: 'lake-baikal-research',
 		data: {
-			title: 'Freelance Web Developer',
-			img: '/assets/stock-2.jpg', 
-			img_alt: 'Freelance Web Development'
+			title: 'Sino-Russian Lake Baikal Geoscience Expedition',
+			img: 'https://wendy7756.github.io/my-research/pic-lake.png',
+			img_alt: 'Lake Baikal Geoscience Research',
+			url: 'https://wendy7756.github.io/my-research/CN-LAKEBAIKAL.pdf'
+		}
+	}
+];
+
+// Open-Source Projects data
+const openSourceProjects = [
+	{
+		id: 'context-engineering',
+		data: {
+			title: 'Context Engineering Infrastructure',
+			description: 'A powerful context management system for AI applications',
+			img: '/assets/stock-3.jpg',
+			img_alt: 'Context Engineering Infrastructure',
+			url: 'https://github.com/context-space/context-space'
+		}
+	},
+	{
+		id: 'ai-asset-allocation',
+		data: {
+			title: 'AI Asset Allocation System',
+			description: 'Intelligent fintech platform using ML for portfolio optimization',
+			img: '/assets/stock-4.jpg',
+			img_alt: 'AI Asset Allocation System',
+			url: 'https://github.com/wendy7756/AI-Asset-allocation'
+		}
+	},
+	{
+		id: 'china-travel-guide',
+		data: {
+			title: 'China Travel Guide',
+			description: 'Comprehensive travel guide website built with Astro',
+			img: '/assets/stock-1.jpg',
+			img_alt: 'China Travel Guide Website',
+			url: 'https://github.com/wendy7756/Chinatravelguide'
+		}
+	},
+	{
+		id: 'follownet-analyzer',
+		data: {
+			title: 'Competitor Follower Analyzer',
+			description: 'Social media analytics tool for competitive intelligence',
+			img: '/assets/stock-2.jpg',
+			img_alt: 'Follower Analysis Tool',
+			url: 'https://github.com/wendy7756/FollowNet'
 		}
 	}
 ];
@@ -57,28 +103,28 @@ const iosApps = [
 	{
 		id: 'newsmood',
 		title: 'Newsmood',
-		description: 'AI News Sentiment Analysis',
+		description: 'AI Sentiment Analysis',
 		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/bd/36/fa/bd36fab3-6597-6031-7e20-4ec74f4a4537/5.png/0x0ss.png',
 		url: 'https://apps.apple.com/us/app/newsmood-ai-news-sentiment/id6744967206'
 	},
 	{
 		id: 'ai-coverletter',
-		title: 'AI Coverletter Maker',
+		title: 'AI CV Maker',
 		description: 'Smart Job Applications',
 		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d2/33/a2/d233a228-6fc6-94c3-17c4-e55718a9de70/app-2.png/0x0ss.png',
 		url: 'https://apps.apple.com/us/app/ai-cover-letter-maker/id6744460792'
 	},
 	{
 		id: 'ai-resume',
-		title: 'AI Resume Revise',
-		description: 'Professional Resume Builder',
+		title: 'Resume Revise',
+		description: 'AI Resume Builder',
 		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/be/e9/d0/bee9d08e-ea56-7f3b-ac4d-d3d8f3d29449/1.png/0x0ss.png',
 		url: 'https://apps.apple.com/us/app/ai-resume-revise/id6744333973'
 	},
 	{
 		id: 'please-dont',
 		title: 'Please Don\'t',
-		description: 'Display Messages Control',
+		description: 'Display Visual Messages',
 		img: 'https://is2-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/92/7b/b4/927bb421-5cc0-3df3-66c5-ecf496b27c5b/Simulator_Screenshot_-_iPhone_16_Pro_Max_-_2025-04-30_at_11.23.52.png/0x0ss.png',
 		url: 'https://apps.apple.com/us/app/please-dont-display-messages/id6744848735'
 	}
@@ -130,20 +176,21 @@ const iosApps = [
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+						<section class="section with-background with-cta academic-research-section">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Work Experience</h3>
-					<p>See my recent roles and achievements below.</p>
+					<h3>Academic Research</h3>
+					<p>Interdisciplinary research projects combining data science, econometrics, and geospatial analysis to solve real-world problems.</p>
 				</header>
 				<div class="gallery">
-					<Grid variant="offset">
+					<Grid>
 						{
-							workExperience.map((work) => (
+							academicResearch.map((research) => (
 								<li class="work-item">
-									<div class="card">
-										<span class="title">{work.data.title}</span>
-										<img src={work.data.img} alt={work.data.img_alt || ''} loading="lazy" decoding="async" />
-									</div>
+									<a href={research.data.url} target="_blank" rel="noopener noreferrer" class="research-card-link">
+										<div class="card">
+											<img src={research.data.img} alt={research.data.img_alt || ''} loading="lazy" decoding="async" />
+										</div>
+									</a>
 								</li>
 							))
 						}
@@ -177,6 +224,33 @@ const iosApps = [
 				</div>
 			</div>
 		</section>
+
+		<!-- Additional Work Experience Section -->
+		<main class="wrapper stack gap-20 lg:gap-48">
+			<section class="section with-background with-cta">
+				<header class="section-header stack gap-2 lg:gap-4">
+					<h3>Open-Source Projects and Websites</h3>
+					<p>Innovative projects I've built and open-sourced, spanning fintech, travel, and developer tools.</p>
+				</header>
+				<div class="gallery">
+					<Grid variant="offset">
+						{
+							openSourceProjects.map((project) => (
+								<li class="work-item">
+									<a href={project.data.url} target="_blank" rel="noopener noreferrer" class="project-card-link">
+										<div class="card">
+											<span class="title">{project.data.title}</span>
+											<p class="project-description">{project.data.description}</p>
+											<img src={project.data.img} alt={project.data.img_alt || ''} loading="lazy" decoding="async" />
+										</div>
+									</a>
+								</li>
+							))
+						}
+					</Grid>
+				</div>
+			</section>
+		</main>
 
 		<ContactCTA />
 	</div>
@@ -611,5 +685,106 @@ const iosApps = [
 		.card .title {
 			border-radius: 0.9375rem;
 		}
+	}
+
+	/* ====================================================== */
+	/* Open-Source Projects Section */
+	
+	.project-card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.project-card-link:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+	}
+
+	.project-description {
+		color: var(--gray-400);
+		font-size: var(--text-sm);
+		margin: 0.5rem 0 1rem 0;
+		line-height: 1.4;
+		text-align: center;
+	}
+
+	.project-card-link .card {
+		cursor: pointer;
+	}
+
+	.project-card-link .title {
+		color: var(--accent-regular);
+	}
+
+		/* ====================================================== */
+	/* Academic Research Section */
+
+	/* 覆盖外层 main container 的 gap */
+	.wrapper.stack > .academic-research-section {
+		margin-top: -3rem !important; /* 减少上边距 */
+	}
+
+	.academic-research-section .section-header {
+		margin-bottom: 0.5rem !important;
+		max-width: 80ch !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.academic-research-section .gallery {
+		margin-top: 0 !important;
+	}
+
+	/* 减少section内部的间距 */
+	.academic-research-section.section {
+		gap: 1rem !important;
+	}
+
+	/* 取消Academic Research卡片的offset错位效果，让两个卡片水平对齐 */
+	.academic-research-section .grid.offset > :global(:nth-child(odd)) {
+		transform: none !important;
+	}
+
+	.academic-research-section .grid.offset {
+		--row-offset: 0rem !important;
+		padding-bottom: 0 !important;
+	}
+
+	/* 更强的选择器优先级来确保水平对齐 */
+	.academic-research-section .gallery .grid.offset > :global(:nth-child(odd)) {
+		transform: translateY(0) !important;
+	}
+
+	@media (min-width: 50em) {
+		.academic-research-section .gallery .grid.offset > :global(:nth-child(odd)) {
+			transform: translateY(0) !important;
+		}
+		
+		.academic-research-section .gallery .grid.offset {
+			--row-offset: 0rem !important;
+			padding-bottom: 0 !important;
+		}
+	}
+
+	.research-card-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.research-card-link:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+	}
+
+	.research-card-link .card {
+		cursor: pointer;
+	}
+
+	.research-card-link .title {
+		color: var(--accent-regular);
 	}
 </style>

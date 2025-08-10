@@ -13,7 +13,6 @@ const textLinks: { label: string; href: string }[] = [
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
 	{ label: 'GitHub', href: 'https://github.com/wendy7756/resume-to-web', icon: 'github-logo' },
-	{ label: 'WhatsApp', href: 'https://wa.me/message/J5LAYZ5APJ6WN1', icon: 'whatsapp-logo' },
 ];
 
 /** Test if a link is pointing to the current page. */
@@ -58,12 +57,9 @@ const isCurrentPage = (href: string) => {
 			<div class="socials">
 				{
 					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class={`social${icon === 'whatsapp-logo' ? ' whatsapp-icon' : ''}`}>
+						<a href={href} class="social">
 							<span class="sr-only">{label}</span>
-							{icon === 'whatsapp-logo' ? 
-								<img src="/assets/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-img" /> :
-								<Icon icon={icon} />
-							}
+							<Icon icon={icon} />
 						</a>
 					))
 				}
@@ -86,12 +82,9 @@ const isCurrentPage = (href: string) => {
 			<div class="socials">
 				{
 					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class={`social${icon === 'whatsapp-logo' ? ' whatsapp-icon' : ''}`}>
+						<a href={href} class="social">
 							<span class="sr-only">{label}</span>
-							{icon === 'whatsapp-logo' ? 
-								<img src="/assets/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-img" /> :
-								<Icon icon={icon} />
-							}
+							<Icon icon={icon} />
 						</a>
 					))
 				}
@@ -349,24 +342,6 @@ const isCurrentPage = (href: string) => {
 			justify-content: flex-end;
 			gap: 0;
 		}
-	}
-
-	/* WhatsApp specific styles */
-	.whatsapp-icon {
-		color: #25D366 !important;
-	}
-
-	.whatsapp-icon:hover,
-	.whatsapp-icon:focus {
-		color: #128C7E !important;
-	}
-
-	/* WhatsApp image styles */
-	.whatsapp-img {
-		width: var(--icon-size);
-		height: var(--icon-size);
-		object-fit: contain;
-		display: block;
 	}
 
 	/* Logo image styles */

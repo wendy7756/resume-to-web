@@ -16,7 +16,7 @@ technology: astro
 author: Astro
 author_url: https://github.com/withastro/astro
 github_url: https://github.com/withastro/astro/tree/main/examples/starlog
-demo_url: https://astro.new/starlog
+demo_url: https://astro.build/themes/details/starlog/
 license: MIT License
 stars: 52700
 is_official: true

@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('blog');
 ---
 
-<BaseLayout title="Blog - ResumeHub" description="Read insights from ResumeHub on design, resumes and portfolios.">
+<BaseLayout title="Blog - ResumeLink" description="Read insights from ResumeLink on design, resumes and portfolios.">
   <div class="blog-list wrapper">
     <header class="list-header">
       <h1>Blog</h1>
@@ -16,7 +16,7 @@ const posts = await getCollection('blog');
           <h2><a href={`/blog/${p.id}` }>{p.data.title}</a></h2>
           <p class="desc">{p.data.description}</p>
           <div class="post-meta">
-            <span class="author">{p.data.author || 'ResumeHub Team'}</span>
+            <span class="author">{p.data.author || 'ResumeLink Team'}</span>
             <span class="separator">·</span>
             <time datetime={p.data.publishDate.toISOString()}>
               {p.data.publishDate.toLocaleDateString('en-US', { 

@@ -199,9 +199,9 @@ Many visually appealing templates include formatting that confuses Applicant Tra
 ### Mismatching Experience Level
 Entry-level professionals sometimes choose executive-style templates that overcompensate for limited experience, while senior professionals may select templates that don't convey appropriate authority.
 
-## Getting Started with ResumeHub
+## Getting Started with ResumeLink
 
-ResumeHub offers professionally designed templates optimized for each industry's unique requirements. Our template gallery includes:
+ResumeLink offers professionally designed templates optimized for each industry's unique requirements. Our template gallery includes:
 
 - **Astro-powered performance** for fast-loading web resumes
 - **Mobile-responsive design** for cross-platform compatibility

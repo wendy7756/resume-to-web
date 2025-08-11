@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
-const siteUrl = 'https://resumehub.com'; // 替换为你的实际域名
+const siteUrl = 'https://ResumeLink.com'; // 替换为你的实际域名
 
 export const GET: APIRoute = async () => {
   // 获取所有作品/模板页面

@@ -158,9 +158,9 @@ When recruiters visit your personal website, they're quickly assessing:
 
 **Dr. Amanda Foster, Research Scientist:** *"Having a professional website with my publication history and research summaries helped me transition from academia to industry. Recruiters could quickly understand the commercial applications of my work."*
 
-## Getting Started with ResumeHub
+## Getting Started with ResumeLink
 
-**ResumeHub transforms your professional presence** with:
+**ResumeLink transforms your professional presence** with:
 
 - **Industry-optimized templates** designed for recruitment success
 - **Mobile-responsive designs** that work perfectly across all devices

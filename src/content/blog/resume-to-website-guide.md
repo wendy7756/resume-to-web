@@ -15,9 +15,9 @@ heroImage: "/assets/stock-1.jpg"
 - **Professional edge**: Stand out with a modern web presence that showcases your tech-savviness
 - **Rich content**: Include portfolio pieces, project demos, and multimedia that PDFs can't handle
 
-## The ResumeHub Advantage
+## The ResumeLink Advantage
 
-ResumeHub transforms your resume into a lightning-fast, SEO-optimized website using modern Astro technology. Our platform offers:
+ResumeLink transforms your resume into a lightning-fast, SEO-optimized website using modern Astro technology. Our platform offers:
 
 - **Professional templates** tested by thousands of job seekers
 - **Mobile-responsive design** that looks perfect on every device
@@ -117,7 +117,7 @@ We're building an interactive editor (Phase 3 of our roadmap) that will let you:
 
 ## Success Stories
 
-Professionals using ResumeHub websites report:
+Professionals using ResumeLink websites report:
 - **3x more interview callbacks** compared to PDF-only applications
 - **Higher profile views** on LinkedIn and job platforms
 - **Better networking** through easily shareable professional links
@@ -127,4 +127,4 @@ Professionals using ResumeHub websites report:
 
 **Ready to create your professional website?** Browse our [template gallery](/template/) and email us your content. Join thousands of professionals who've already made the switch from static PDFs to dynamic web presence.
 
-*ResumeHub is free, open-source, and committed to democratizing professional online presence for everyone.*
+*ResumeLink is free, open-source, and committed to democratizing professional online presence for everyone.*

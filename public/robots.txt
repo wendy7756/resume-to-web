@@ -24,7 +24,7 @@ Allow: /*.webp
 # Disallow: /private/
 
 # 站点地图位置
-Sitemap: https://resumehub.com/sitemap.xml
+Sitemap: https://ResumeLink.com/sitemap.xml
 
 # 爬取延迟（可选，避免服务器过载）
 Crawl-delay: 1

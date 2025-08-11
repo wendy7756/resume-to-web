@@ -14,12 +14,12 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${entry.data.title} - ResumeHub Blog`} description={entry.data.description}>
+<BaseLayout title={`${entry.data.title} - ResumeLink Blog`} description={entry.data.description}>
   <article class="blog-article">
     <header class="blog-header">
       <h1 class="blog-title">{entry.data.title}</h1>
       <div class="blog-meta">
-        <span class="author">{entry.data.author || 'ResumeHub Team'}</span>
+        <span class="author">{entry.data.author || 'ResumeLink Team'}</span>
         <span class="separator">·</span>
         <time datetime={entry.data.publishDate.toISOString()}>
           {entry.data.publishDate.toLocaleDateString('en-US', { 

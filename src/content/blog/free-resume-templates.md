@@ -55,12 +55,12 @@ Looking for a fast start? These five free Astro templates are battle‑tested an
 - Above‑the‑fold should be scannable within 3 seconds
 - Ensure meta tags and Open Graph images are set for SEO and sharing
 
-### Quick SEO setup on ResumeHub
+### Quick SEO setup on ResumeLink
 
 - Page title: include your role and domain keywords (e.g., “Frontend Engineer — SaaS, React, Performance”)
 - Description: 150–160 characters summarizing your strengths and outcomes
 - Headings: reflect your tools, industries, and impact verbs (built, shipped, scaled)
 
-Start with any of these templates, then personalize colors, type, and sections on ResumeHub to go live quickly.
+Start with any of these templates, then personalize colors, type, and sections on ResumeLink to go live quickly.
 
 

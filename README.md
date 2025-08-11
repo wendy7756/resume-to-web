@@ -1,8 +1,8 @@
 <div align="center">
 
-## ResumeHub: Building the future of online resumes and portfolios
+## ResumeLink: Building the future of online resumes and portfolios
 
-![ResumeHub Website](public/assets/web.jpg)
+![ResumeLink Website](public/assets/web.jpg)
 
 </div>
 
@@ -10,7 +10,7 @@ A free, open-source platform that transforms your resume, CV, or portfolio into 
 
 ## 🎯 Our Vision
 
-ResumeHub aims to democratize professional resume and portfolio creation. We believe everyone deserves access to beautiful, professional templates and the tools to showcase their skills effectively. Our mission is to eliminate barriers between talent and opportunity through innovative web technology.
+ResumeLink aims to democratize professional resume and portfolio creation. We believe everyone deserves access to beautiful, professional templates and the tools to showcase their skills effectively. Our mission is to eliminate barriers between talent and opportunity through innovative web technology.
 
 ## ✨ Current Features
 
@@ -71,9 +71,9 @@ Our development journey is structured in four strategic phases, each building up
 
 ## 🤝 Get Involved
 
-Join our mission to democratize professional online presence! Whether you're a job seeker, developer, or designer, there's a place for you in the ResumeHub community.
+Join our mission to democratize professional online presence! Whether you're a job seeker, developer, or designer, there's a place for you in the ResumeLink community.
 
-### 💼 Want Your Resume/Portfolio on ResumeHub?
+### 💼 Want Your Resume/Portfolio on ResumeLink?
 
 **Personalized Service Available Now!**
 
@@ -136,5 +136,5 @@ Help us build the future of online resumes! We welcome contributions from develo
 
 **Together, let's eliminate barriers between talent and opportunity!** 🌟
 
-*ResumeHub is an open-source project committed to making professional online presence accessible to everyone, everywhere.*
+*ResumeLink is an open-source project committed to making professional online presence accessible to everyone, everywhere.*
 

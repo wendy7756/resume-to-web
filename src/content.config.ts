@@ -24,4 +24,16 @@ export const collections = {
 			is_featured: z.boolean().optional(),
 		}),
 	}),
+    blog: defineCollection({
+        // Blog posts in src/content/blog
+        loader: glob({ base: './src/content/blog', pattern: '**/*.md' }),
+        schema: z.object({
+            title: z.string(),
+            description: z.string(),
+            publishDate: z.coerce.date(),
+            author: z.string(),
+            tags: z.array(z.string()),
+            heroImage: z.string().optional(),
+        }),
+    }),
 };

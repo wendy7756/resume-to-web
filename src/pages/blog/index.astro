@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+---
+
+<BaseLayout title="Blog - ResumeHub" description="Read insights from ResumeHub on design, resumes and portfolios.">
+  <div class="blog-list wrapper">
+    <header class="list-header">
+      <h1>Blog</h1>
+      <p>Insights on resume building, portfolio design, and career growth</p>
+    </header>
+    {posts.map((p) => (
+      <article class="post-card">
+        <div class="card-content">
+          <h2><a href={`/blog/${p.id}` }>{p.data.title}</a></h2>
+          <p class="desc">{p.data.description}</p>
+          <div class="post-meta">
+            <span class="author">{p.data.author || 'ResumeHub Team'}</span>
+            <span class="separator">·</span>
+            <time datetime={p.data.publishDate.toISOString()}>
+              {p.data.publishDate.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+              })}
+            </time>
+            <span class="separator">·</span>
+            <span class="read-time">3 min read</span>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <style>
+    /* Medium-inspired blog list */
+    .blog-list { 
+      max-width: 728px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem; 
+    }
+    
+    .list-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--gray-850);
+    }
+    
+    .list-header h1 {
+      font-family: "Times New Roman", Times, serif;
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 600;
+      color: var(--gray-0);
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .list-header p {
+      color: var(--gray-400);
+      font-size: 1.125rem;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .post-card { 
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--gray-900);
+      transition: all 0.2s ease;
+    }
+    
+    .post-card:last-child {
+      border-bottom: none;
+    }
+    
+    .post-card:hover {
+      transform: translateY(-1px);
+    }
+    
+    .card-content h2 { 
+      margin: 0 0 0.75rem; 
+      font-family: "Times New Roman", Times, serif; 
+      font-size: clamp(1.25rem, 1.5vw, 1.5rem); 
+      line-height: 1.3; 
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    
+    .card-content h2 a {
+      color: var(--gray-0);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .card-content h2 a:hover {
+      color: var(--accent-regular);
+    }
+    
+    .desc { 
+      margin: 0 0 1rem; 
+      color: var(--gray-300); 
+      line-height: 1.6;
+      font-size: 1rem;
+      font-family: "Times New Roman", Times, serif;
+    }
+    
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    .author {
+      color: var(--gray-400);
+      font-weight: 500;
+    }
+    
+    .separator {
+      color: var(--gray-600);
+    }
+    
+    .read-time {
+      color: var(--gray-500);
+    }
+    
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .blog-list { 
+        padding: 2rem 1rem 3rem; 
+      }
+      
+      .list-header {
+        margin-bottom: 2rem;
+      }
+      
+      .list-header h1 {
+        font-size: clamp(1.75rem, 5vw, 2.25rem);
+      }
+      
+      .list-header p {
+        font-size: 1rem;
+      }
+      
+      .post-card {
+        padding: 1.5rem 0;
+      }
+      
+      .post-meta {
+        flex-wrap: wrap;
+        gap: 0.375rem;
+      }
+    }
+  </style>
+</BaseLayout>
+
+

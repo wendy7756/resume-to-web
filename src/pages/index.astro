@@ -4,18 +4,24 @@ import Icon from '../components/Icon.astro';
 import CallToAction from '../components/CallToAction.astro';
 ---
 
-<BaseLayout title="Professional Resume Templates | Beautiful Web Resumes" description="Create modern, ATS-friendly resumes and portfolios online. Choose from customizable templates to showcase your skills and stand out.">
+<BaseLayout 
+	title="ResumeHub - Free Resume & CV Builder | 100+ Professional Templates"
+	description="Transform your resume, CV and portfolio into stunning web pages instantly. Choose from 100+ professional templates. No design skills required. Mobile-responsive, SEO-optimized, ATS-friendly."
+	keywords="free resume builder,CV maker,online resume,CV templates,resume templates,CV builder,professional resume,job resume,curriculum vitae,personal website,career portfolio,portfolio design"
+>
 	<div class="landing-page">
 		<!-- Hero Section -->
 		<section class="hero-section">
 			<div class="hero-content">
 				<h1 class="hero-title">
-					Create Resume Online
+					Turn Your <span class="highlight-web">Resume</span> Into a <span class="highlight-resumes">Beautiful Website</span>
 				</h1>
 				
-				<p class="hero-subtitle">
-					Create beautiful, modern web resumes with our carefully crafted templates. Professional designs that make you stand out.
-				</p>
+				<div class="hero-features">
+					<span class="feature-bullet">✨ Free Resume Builder</span>
+					<span class="feature-bullet">🚀 Open-Source CV Maker</span>
+					<span class="feature-bullet">🎨 Beautiful Portfolio Templates</span>
+				</div>
 
                 
 
@@ -32,6 +38,9 @@ import CallToAction from '../components/CallToAction.astro';
 			</div>
 		</section>
 	</div>
+	
+	<!-- Content Divider -->
+	<div class="content-divider"></div>
 </BaseLayout>
 
 <style>
@@ -59,10 +68,9 @@ import CallToAction from '../components/CallToAction.astro';
 		top: 0;
 		transform: translateY(-75%) translateX(-50%);
 		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
 			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
 			var(--gray-999);
-		background-blend-mode: overlay, normal, normal;
+		background-blend-mode: normal, normal;
 		mix-blend-mode: var(--bg-blend-mode);
 		z-index: -1;
 	}
@@ -83,13 +91,13 @@ import CallToAction from '../components/CallToAction.astro';
 	.hero-title {
 		font-size: clamp(2.5rem, 8vw, 5rem);
 		font-weight: 800;
-		line-height: 1.1;
+		line-height: 1.3;
 		color: var(--gray-0);
 		margin: 0;
 	}
 
 	.highlight-web {
-		color: var(--accent-regular);
+		color: var(--gray-0);
 	}
 
 	.highlight-resumes {
@@ -100,12 +108,22 @@ import CallToAction from '../components/CallToAction.astro';
 		color: var(--accent-regular);
 	}
 
-	.hero-subtitle {
+	.hero-features {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+		margin: 2rem 0;
+		flex-wrap: wrap;
+	}
+
+	.feature-bullet {
 		font-size: var(--text-lg);
-		color: var(--gray-300);
-		max-width: 600px;
-		line-height: 1.6;
-		margin: 0;
+		color: var(--gray-100);
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		white-space: nowrap;
 	}
 
     /* removed search + stats styles */
@@ -136,7 +154,14 @@ import CallToAction from '../components/CallToAction.astro';
 	}
 
 	@media (max-width: 768px) {
-        /* removed responsive rules for search + stats */
+		.hero-features {
+			gap: 2rem;
+			margin: 1.5rem 0;
+		}
+
+		.feature-bullet {
+			font-size: var(--text-md);
+		}
 
 		.cta-container {
 			flex-direction: column;
@@ -146,6 +171,22 @@ import CallToAction from '../components/CallToAction.astro';
     @media (min-width: 50em) {
         .landing-page { padding-top: 5rem; }
     }
+
+	/* Content Divider */
+	.content-divider {
+		width: 100%;
+		height: 1px;
+		background: var(--gray-600);
+		margin: 3rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.content-divider {
+			margin: 2rem 0;
+		}
+	}
+
+
 
 		.secondary-cta {
 			width: 100%;

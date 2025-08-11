@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# Redirect www to non-www
+https://www.resumelink.cloud/* https://resumelink.cloud/:splat 301!
+
+# SPA fallback for Astro
+/*    /index.html   200

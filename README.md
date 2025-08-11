@@ -1,6 +1,12 @@
+<div align="center">
+
 # ResumeHub
 
 **Building the future of online resumes and portfolios**
+
+![ResumeHub Website](public/assets/web.jpg)
+
+</div>
 
 A free, open-source platform that transforms your resume, CV, or portfolio into stunning web pages. Browse professional templates, get inspired, and create your online presence - no design or coding skills required.
 

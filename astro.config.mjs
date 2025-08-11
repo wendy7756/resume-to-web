@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ResumeLink.com', // 替换为你的实际域名
+  site: 'https://resumelink.cloud', // 实际域名
   
   // 启用压缩
   compressHTML: true,

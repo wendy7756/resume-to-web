@@ -128,9 +128,9 @@ Help us build the future of online resumes! We welcome contributions from develo
 ### 📬 Contact & Community
 
 - **📧 Email**: [wendy7756@outlook.com](mailto:wendy7756@outlook.com)
-- **🔗 GitHub**: [Submit issues and PRs](https://github.com/wendy7756/resume-to-web)
+- **🔗 GitHub**: [Submit issues and PRs](https://github.com/wendy7756/resumelink)
 - **💬 Discussions**: Share ideas and get support in GitHub Discussions
-- **🌐 Website**: [Visit our live platform](/roadmap/) to see our roadmap
+- **🌐 Website**: [Visit our live platform](https://resumelink.cloud) to see our roadmap
 
 ---
 

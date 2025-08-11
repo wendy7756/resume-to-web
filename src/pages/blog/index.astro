@@ -4,7 +4,11 @@ import { getCollection } from 'astro:content';
 const posts = await getCollection('blog');
 ---
 
-<BaseLayout title="Blog - ResumeLink" description="Read insights from ResumeLink on design, resumes and portfolios.">
+<BaseLayout 
+	title="Blog - ResumeLink" 
+	description="Read insights from ResumeLink on design, resumes and portfolios."
+	keywords="blog,resume tips,CV advice,portfolio design,career insights,job search,professional development"
+>
   <div class="blog-list wrapper">
     <header class="list-header">
       <h1>Blog</h1>

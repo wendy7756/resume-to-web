@@ -4,6 +4,7 @@ description: "Choose the perfect resume template for your field. From tech portf
 publishDate: 2025-08-11
 author: "Wendy"
 tags: ["resume styles", "industry templates", "design guidance", "portfolio"]
+keywords: "resume templates,industry templates,resume styles,professional resume,career field,job search"
 heroImage: "/assets/stock-4.jpg"
 ---
 

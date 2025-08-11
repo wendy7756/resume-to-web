@@ -14,7 +14,11 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${entry.data.title} - ResumeLink Blog`} description={entry.data.description}>
+<BaseLayout 
+  title={entry.data.title.length > 42 ? `${entry.data.title.substring(0, 42)}... - ResumeLink` : `${entry.data.title} - ResumeLink`} 
+  description={entry.data.description}
+  keywords={entry.data.keywords || entry.data.tags?.join(',') || 'blog,resume,CV,career advice'}
+>
   <article class="blog-article">
     <header class="blog-header">
       <h1 class="blog-title">{entry.data.title}</h1>

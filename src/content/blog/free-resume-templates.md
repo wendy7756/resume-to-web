@@ -4,6 +4,7 @@ description: Share battle-tested resume and portfolio templates used by 10,000+ 
 publishDate: 2025-08-11
 author: Wendy
 tags: [astro templates, free resume templates, portfolio templates, static site]
+keywords: free resume templates,website templates,portfolio templates,professional design,astro templates
 heroImage: /assets/stock-2.jpg
 ---
 

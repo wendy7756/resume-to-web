@@ -1,9 +1,10 @@
 ---
 title: Why 73% of Recruiters Prefer Candidates with Personal Websites
-description: Discover how a professional website makes you 3x more likely to get interviews. Real recruiter insights and success stories from job seekers who made the switch.
+description: Discover how a professional website makes you 3x more likely to get interviews. Real recruiter insights and success stories from job seekers.
 publishDate: 2025-08-11
 author: Wendy
 tags: [career growth, personal website, job search, employer branding]
+keywords: personal website,recruiters,job search,career growth,professional website,employer branding
 heroImage: /assets/stock-3.jpg
 ---
 

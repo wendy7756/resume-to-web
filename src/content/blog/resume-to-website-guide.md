@@ -4,6 +4,7 @@ description: "Transform your traditional resume into a stunning, mobile-friendly
 publishDate: 2025-08-11
 author: "Wendy"
 tags: ["resume builder", "cv maker", "online resume", "portfolio website", "seo"]
+keywords: "resume website,online resume,cv maker,resume builder,portfolio website,web resume,digital resume"
 heroImage: "/assets/stock-1.jpg"
 ---
 

@@ -17,34 +17,7 @@ import CallToAction from '../components/CallToAction.astro';
 					Create beautiful, modern web resumes with our carefully crafted templates. Professional designs that make you stand out.
 				</p>
 
-				<!-- Search Bar -->
-				<div class="search-container">
-					<div class="search-bar">
-						<Icon icon="paper-plane-tilt" size="1.2em" />
-						<input 
-							type="text" 
-							placeholder="Search templates by job, style, or keyword..."
-							class="search-input"
-						/>
-						<button class="search-button">Search</button>
-					</div>
-				</div>
-
-				<!-- Stats -->
-				<div class="stats-container">
-					<div class="stat">
-						<Icon icon="strategy" size="1.1em" />
-						<span>Professional Quality</span>
-					</div>
-					<div class="stat">
-						<Icon icon="heart" size="1.1em" />
-						<span>Loved by Users</span>
-					</div>
-					<div class="stat">
-						<Icon icon="code" size="1.1em" />
-						<span>No Coding Required</span>
-					</div>
-				</div>
+                
 
 				<!-- CTA Buttons -->
 				<div class="cta-container">
@@ -62,14 +35,15 @@ import CallToAction from '../components/CallToAction.astro';
 </BaseLayout>
 
 <style>
-	.landing-page {
+    .landing-page {
 		min-height: 80vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
+        justify-content: flex-start; /* 改为顶部对齐，便于整体上移 */
 		text-align: center;
-		padding: 2rem 1rem;
+        padding: 2rem 1rem;
+        padding-top: 4rem; /* 上移整体内容，保留适当间距 */
 		position: relative;
 	}
 
@@ -93,10 +67,11 @@ import CallToAction from '../components/CallToAction.astro';
 		z-index: -1;
 	}
 
-	.hero-section {
-		max-width: 900px;
-		width: 100%;
-	}
+    .hero-section {
+        max-width: 900px;
+        width: 100%;
+        margin-top: 0;
+    }
 
 	.hero-content {
 		display: flex;
@@ -133,71 +108,7 @@ import CallToAction from '../components/CallToAction.astro';
 		margin: 0;
 	}
 
-	.search-container {
-		width: 100%;
-		max-width: 600px;
-		margin: 0.5rem 0;
-	}
-
-	.search-bar {
-		display: flex;
-		align-items: center;
-		background: var(--gray-800);
-		border: 1px solid var(--gray-600);
-		border-radius: 3rem;
-		padding: 0.75rem 1rem;
-		gap: 1rem;
-		transition: border-color var(--theme-transition);
-	}
-
-	.search-bar:focus-within {
-		border-color: var(--accent-regular);
-		box-shadow: 0 0 0 2px var(--accent-subtle-overlay);
-	}
-
-	.search-input {
-		flex: 1;
-		background: transparent;
-		border: none;
-		color: var(--gray-0);
-		font-size: var(--text-base);
-		outline: none;
-	}
-
-	.search-input::placeholder {
-		color: var(--gray-400);
-	}
-
-	.search-button {
-		background: var(--accent-regular);
-		color: var(--accent-text-over);
-		border: none;
-		padding: 0.75rem 1.5rem;
-		border-radius: 2rem;
-		font-weight: 500;
-		cursor: pointer;
-		transition: background-color var(--theme-transition);
-	}
-
-	.search-button:hover {
-		background: var(--accent-dark);
-	}
-
-	.stats-container {
-		display: flex;
-		gap: 2rem;
-		flex-wrap: wrap;
-		justify-content: center;
-		margin: 0.5rem 0;
-	}
-
-	.stat {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		color: var(--gray-300);
-		font-size: var(--text-sm);
-	}
+    /* removed search + stats styles */
 
 	.cta-container {
 		display: flex;
@@ -225,27 +136,16 @@ import CallToAction from '../components/CallToAction.astro';
 	}
 
 	@media (max-width: 768px) {
-		.stats-container {
-			gap: 1rem;
-		}
-
-		.stat {
-			font-size: var(--text-xs);
-		}
-
-		.search-bar {
-			padding: 0.5rem 0.75rem;
-		}
-
-		.search-button {
-			padding: 0.5rem 1rem;
-			font-size: var(--text-sm);
-		}
+        /* removed responsive rules for search + stats */
 
 		.cta-container {
 			flex-direction: column;
 			width: 100%;
 		}
+
+    @media (min-width: 50em) {
+        .landing-page { padding-top: 5rem; }
+    }
 
 		.secondary-cta {
 			width: 100%;
@@ -258,25 +158,7 @@ import CallToAction from '../components/CallToAction.astro';
 			font-size: 2.5rem;
 		}
 
-		.search-bar {
-			flex-direction: column;
-			gap: 0.75rem;
-			text-align: left;
-		}
-
-		.search-input {
-			width: 100%;
-			padding: 0.5rem;
-		}
-
-		.search-button {
-			width: 100%;
-		}
-
-		.stats-container {
-			flex-direction: column;
-			gap: 0.75rem;
-		}
+        /* removed mobile rules for search + stats */
 	}
 </style>
 

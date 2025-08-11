@@ -26,7 +26,7 @@ const academicResearch = [
 			title: 'Social Media Impact on Stock Market Analysis',
 			img: 'https://wendy7756.github.io/my-research/pic-socialmedia.png',
 			img_alt: 'Social Media Stock Market Research',
-			url: 'https://wendy7756.github.io/my-research/CN-socailmedia.pdf'
+			url: 'https://wendy7756.github.io/my-research/socialmedia.html'
 		}
 	},
 	{
@@ -35,7 +35,7 @@ const academicResearch = [
 			title: 'Sino-Russian Lake Baikal Geoscience Expedition',
 			img: 'https://wendy7756.github.io/my-research/pic-lake.png',
 			img_alt: 'Lake Baikal Geoscience Research',
-			url: 'https://wendy7756.github.io/my-research/CN-LAKEBAIKAL.pdf'
+			url: 'https://wendy7756.github.io/my-research/lakebaikal.html'
 		}
 	}
 ];
@@ -43,43 +43,43 @@ const academicResearch = [
 // Open-Source Projects data
 const openSourceProjects = [
 	{
-		id: 'context-engineering',
+		id: 'context-space',
 		data: {
-			title: 'Context Engineering Infrastructure',
-			description: 'A powerful context management system for AI applications',
-			img: '/assets/stock-3.jpg',
-			img_alt: 'Context Engineering Infrastructure',
-			url: 'https://github.com/context-space/context-space'
+			title: 'Context Space',
+			description: 'Tool-first Context Engineering Infrastructure for AI applications',
+			img: '/ospics/contextspace.png',
+			img_alt: 'Context Space',
+			url: 'https://context.space'
 		}
 	},
 	{
 		id: 'ai-asset-allocation',
 		data: {
-			title: 'AI Asset Allocation System',
-			description: 'Intelligent fintech platform using ML for portfolio optimization',
-			img: '/assets/stock-4.jpg',
+			title: 'Fintech',
+			description: 'AI-powered asset allocation system for intelligent portfolio optimization',
+			img: '/ospics/fintech.png',
 			img_alt: 'AI Asset Allocation System',
 			url: 'https://github.com/wendy7756/AI-Asset-allocation'
 		}
 	},
 	{
-		id: 'china-travel-guide',
+		id: 'follownet-analyzer',
 		data: {
-			title: 'China Travel Guide',
-			description: 'Comprehensive travel guide website built with Astro',
-			img: '/assets/stock-1.jpg',
-			img_alt: 'China Travel Guide Website',
-			url: 'https://github.com/wendy7756/Chinatravelguide'
+			title: 'FollowNet',
+			description: 'Analyze Competitors’ Followers Across Social Media',
+			img: '/ospics/follownet.png',
+			img_alt: 'FollowNet Analytics Tool',
+			url: 'https://github.com/wendy7756/FollowNet'
 		}
 	},
 	{
-		id: 'follownet-analyzer',
+		id: 'travel-guide',
 		data: {
-			title: 'Competitor Follower Analyzer',
-			description: 'Social media analytics tool for competitive intelligence',
-			img: '/assets/stock-2.jpg',
-			img_alt: 'Follower Analysis Tool',
-			url: 'https://github.com/wendy7756/FollowNet'
+			title: 'Travel Guide',
+			description: 'Beautiful China travel guide website showcasing destinations and cultural experiences',
+			img: '/ospics/travel.jpg',
+			img_alt: 'China Travel Guide Website',
+			url: 'https://www.localtravelguide.fun'
 		}
 	}
 ];
@@ -176,20 +176,30 @@ const iosApps = [
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
-						<section class="section with-background with-cta academic-research-section">
+			<section class="section with-background with-cta open-source-section">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Academic Research</h3>
-					<p>Interdisciplinary research projects combining data science, econometrics, and geospatial analysis to solve real-world problems.</p>
+					<h3>Open-Source Projects<br/>and Websites</h3>
+					<p>A portfolio of innovative open-source projects in AI infrastructure, fintech, competitor analytics, and cultural tourism — developed to solve problems, scale impact, and contribute to the community.</p>
 				</header>
 				<div class="gallery">
-					<Grid>
-						{
-							academicResearch.map((research) => (
-								<li class="work-item">
-									<a href={research.data.url} target="_blank" rel="noopener noreferrer" class="research-card-link">
+					<Grid variant="offset">
+                        {
+                            openSourceProjects.map((project) => (
+                                <li class="work-item">
+                                    {project.id === 'context-space' && (
+                                        <div class="inline-tech-badges">
+                                            <span class="tech-badge">#Python</span>
+                                            <span class="tech-badge">#Javascript</span>
+                                            <span class="tech-badge">#Typescript</span>
+                                            <span class="tech-badge">#SQL</span>
+                                            <span class="tech-badge">#CSS</span>
+                                        </div>
+                                    )}
+									<a href={project.data.url} target="_blank" rel="noopener noreferrer" class="project-card-link">
 										<div class="card">
-											<img src={research.data.img} alt={research.data.img_alt || ''} loading="lazy" decoding="async" />
+											<img src={project.data.img} alt={project.data.img_alt || ''} loading="lazy" decoding="async" />
 										</div>
+										<p class="project-description">{project.data.description}</p>
 									</a>
 								</li>
 							))
@@ -199,7 +209,7 @@ const iosApps = [
 			</section>
 		</main>
 
-		<section class="section ios-apps-section">
+		<section class="section with-background ios-apps-section">
 			<div class="wrapper">
 				<header class="section-header stack gap-2 lg:gap-4 center-header">
 					<h3>My Self-built iOS Apps</h3>
@@ -225,23 +235,21 @@ const iosApps = [
 			</div>
 		</section>
 
-		<!-- Additional Work Experience Section -->
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+		<!-- Academic Research Section -->
+		<main class="wrapper stack gap-8 lg:gap-16">
+			<section class="section with-background academic-research-section">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Open-Source Projects and Websites</h3>
-					<p>Innovative projects I've built and open-sourced, spanning fintech, travel, and developer tools.</p>
+					<h3>Academic Research</h3>
+					<p>Interdisciplinary research at the intersection of economics, technology, and industry, applying advanced data analytics, economic modeling, and geospatial methods to generate insights that bridge academic rigor with practical decision-making.</p>
 				</header>
 				<div class="gallery">
-					<Grid variant="offset">
+					<Grid>
 						{
-							openSourceProjects.map((project) => (
+							academicResearch.map((research) => (
 								<li class="work-item">
-									<a href={project.data.url} target="_blank" rel="noopener noreferrer" class="project-card-link">
+									<a href={research.data.url} target="_blank" rel="noopener noreferrer" class="research-card-link">
 										<div class="card">
-											<span class="title">{project.data.title}</span>
-											<p class="project-description">{project.data.description}</p>
-											<img src={project.data.img} alt={project.data.img_alt || ''} loading="lazy" decoding="async" />
+											<img src={research.data.img} alt={research.data.img_alt || ''} loading="lazy" decoding="async" />
 										</div>
 									</a>
 								</li>
@@ -690,14 +698,72 @@ const iosApps = [
 	/* ====================================================== */
 	/* Open-Source Projects Section */
 	
+	.open-source-section {
+		gap: 2rem !important;
+	}
+	
+	.open-source-section .section-header {
+		max-width: 70ch !important;
+		margin-bottom: 1rem !important;
+	}
+	
+	.open-source-section .gallery {
+		margin-top: 0 !important;
+	}
+
+	/* Inline badges for first card only; absolute positioned to fill existing blank space */
+	.open-source-section .work-item { position: relative; }
+    .inline-tech-badges {
+        position: absolute;
+        top: -1.5rem; /* mobile default: move up slightly */
+		left: 0;
+		display: flex;
+		gap: 0.5rem;
+		z-index: 1;
+	}
+	@media (min-width: 50em) {
+        .inline-tech-badges { top: calc(-1 * var(--row-offset) - 0.5rem); }
+	}
+
+	.tech-badge {
+		background: var(--gray-999);
+		color: var(--accent-regular);
+		border: 1px solid var(--accent-regular);
+		padding: 0.25rem 0.6rem;
+		border-radius: 999px;
+		font-size: var(--text-sm);
+		line-height: 1;
+		white-space: nowrap;
+	}
+	
+	@media (min-width: 50em) {
+		.open-source-section {
+			gap: 3rem !important;
+		}
+		
+		.open-source-section .section-header {
+			max-width: 80ch !important;
+			margin-bottom: 1.5rem !important;
+		}
+
+		/* Make left column (odd items) sit higher by reducing the staggered row offset */
+		.open-source-section .gallery :global(.grid.offset) {
+			--row-offset: 3.5rem;
+		}
+	}
+	
 	.project-card-link {
 		display: block;
 		text-decoration: none;
 		color: inherit;
+	}
+
+	.project-card-link .card {
+		cursor: pointer;
 		transition: transform 0.2s ease, box-shadow 0.2s ease;
 	}
 
-	.project-card-link:hover {
+	.project-card-link:hover .card {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 	}
@@ -705,14 +771,12 @@ const iosApps = [
 	.project-description {
 		color: var(--gray-400);
 		font-size: var(--text-sm);
-		margin: 0.5rem 0 1rem 0;
+		margin: 0.75rem 0 0 0;
 		line-height: 1.4;
 		text-align: center;
 	}
 
-	.project-card-link .card {
-		cursor: pointer;
-	}
+
 
 	.project-card-link .title {
 		color: var(--accent-regular);
@@ -727,19 +791,54 @@ const iosApps = [
 	}
 
 	.academic-research-section .section-header {
-		margin-bottom: 0.5rem !important;
-		max-width: 80ch !important;
+		margin-bottom: 1.5rem !important;
+		max-width: none !important;
+		width: 100% !important;
 		margin-left: auto !important;
 		margin-right: auto !important;
+		text-align: center !important;
+		justify-self: stretch !important;
+	}
+	
+	/* 确保section-header的子元素也居中 */
+	.academic-research-section .section-header h3,
+	.academic-research-section .section-header p {
+		text-align: center !important;
+		max-width: none !important;
+		width: 100% !important;
+	}
+	
+	/* 覆盖with-cta类的默认样式 */
+	.academic-research-section.with-cta .section-header {
+		justify-self: center !important;
+		text-align: center !important;
+		max-width: none !important;
+	}
+	
+	/* 增加标题和描述之间的距离 */
+	.academic-research-section .section-header.stack {
+		gap: 1.5rem !important;
+	}
+	
+	/* 在大屏幕上增加更多间距 */
+	@media (min-width: 50em) {
+		.academic-research-section .section-header.stack {
+			gap: 2rem !important;
+		}
 	}
 
 	.academic-research-section .gallery {
 		margin-top: 0 !important;
 	}
 
-	/* 减少section内部的间距 */
+	/* 收紧section内部的间距 */
 	.academic-research-section.section {
-		gap: 1rem !important;
+		gap: 1.5rem !important;
+	}
+	
+	/* 收紧卡片之间的间距 */
+	.academic-research-section .gallery .grid {
+		gap: 1.25rem !important;
 	}
 
 	/* 取消Academic Research卡片的offset错位效果，让两个卡片水平对齐 */

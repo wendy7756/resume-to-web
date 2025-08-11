@@ -1,8 +1,6 @@
 <div align="center">
 
-# ResumeHub
-
-**Building the future of online resumes and portfolios**
+## ResumeHub: Building the future of online resumes and portfolios
 
 ![ResumeHub Website](public/assets/web.jpg)
 

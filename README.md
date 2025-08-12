@@ -6,11 +6,11 @@
 
 </div>
 
-A free, open-source platform that transforms your resume, CV, or portfolio into stunning web pages. Browse professional templates, get inspired, and create your online presence - no design or coding skills required.
+A free, open-source platform that transforms your resume, CV, or portfolio into beautiful web pages - no design or coding skills required.
 
-## 🎯 Our Vision
+## 🎯 My Vision
 
-ResumeLink aims to democratize professional resume and portfolio creation. We believe everyone deserves access to beautiful, professional templates and the tools to showcase their skills effectively. Our mission is to eliminate barriers between talent and opportunity through innovative web technology.
+ResumeLink aims to democratize professional resume and portfolio creation. Everyone deserves access to beautiful, professional templates and the tools to showcase their skills effectively. ResumeLink is built to eliminate barriers between talent and opportunity through innovative web technology.
 
 ## ✨ Current Features
 
@@ -20,9 +20,9 @@ ResumeLink aims to democratize professional resume and portfolio creation. We be
 - **Preview & Browse**: Explore templates before choosing your perfect match
 - **Mobile Responsive**: All templates optimized for every device
 
-### 🖼️ Resume Gallery
-- **Showcase Platform**: Featured collection of outstanding resume examples
-- **Community Contributions**: Real resumes from professionals across industries
+### 🖼️ Showcase
+- **Showcase Platform**: Featured collection of outstanding resume examples and personal stories
+- **Community Contributions**: Real resumes and stories from professionals across industries
 - **Inspiration Hub**: Browse successful resume designs and layouts
 - **Career Stories**: Learn from others' professional journeys
 

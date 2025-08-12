@@ -1,13 +1,31 @@
 # Cloudflare Pages headers configuration
 # https://developers.cloudflare.com/pages/configuration/headers/
 
-# Default headers for all pages
+# Default security/privacy headers for all pages (no robots here to avoid duplicates)
 /*
-  X-Robots-Tag: index, follow
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
+
+# Explicitly allow indexing for main pages
+/
+  X-Robots-Tag: index, follow
+
+/about-wendy/
+  X-Robots-Tag: index, follow
+
+/template/
+  X-Robots-Tag: index, follow
+
+/template/*
+  X-Robots-Tag: index, follow
+
+/blog/
+  X-Robots-Tag: index, follow
+
+/blog/*
+  X-Robots-Tag: index, follow
 
 # 404 page - should not be indexed
 /404.html

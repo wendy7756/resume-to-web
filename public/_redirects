@@ -11,5 +11,8 @@ www.resumelink.cloud/* resumelink.cloud/:splat 301!
 http://resumelink.cloud/* https://resumelink.cloud/:splat 301!
 http://www.resumelink.cloud/* https://resumelink.cloud/:splat 301!
 
+## Ensure dedicated 404 route responds with 404 (not overridden by SPA fallback)
+/404 /404.html 404
+
 # SPA fallback for Astro static site
 /*    /index.html   200

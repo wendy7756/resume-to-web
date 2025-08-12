@@ -6,7 +6,7 @@ import Icon from '../components/Icon.astro';
 <BaseLayout 
 	title="Roadmap - ResumeLink | Future of Resume Building"
 	description="Discover ResumeLink's roadmap and vision. From 100+ templates to AI-powered features, see how we're revolutionizing online resume and portfolio creation."
-	keywords="roadmap,future plans,resume builder roadmap,CV maker development,template expansion,AI features,resume technology,product roadmap"
+	keywords="roadmap,resume builder roadmap,CV maker development,template expansion,AI features,future plan"
 >
 	<div class="roadmap-page">
 		<div class="wrapper">
@@ -41,6 +41,10 @@ import Icon from '../components/Icon.astro';
 								<li><strong>Astro Classic Templates:</strong> Integrated premium Astro portfolio templates</li>
 								<li><strong>Responsive Design:</strong> Mobile-first approach with beautiful layouts</li>
 								<li><strong>Template Gallery:</strong> Showcase different resume & portfolio styles</li>
+								<li><strong>Resume Gallery:</strong> Platform for showcasing community resumes and success stories</li>
+								<li><strong>SEO Excellence:</strong> Complete optimization with X-Robots-Tag, canonical URLs, and structured data</li>
+								<li><strong>Performance Optimization:</strong> Advanced image loading, DNS preconnect, and caching strategies</li>
+								<li><strong>Analytics Integration:</strong> Google Analytics tracking and performance insights</li>
 								<li><strong>Community Building:</strong> Growing developer and designer community</li>
 							</ul>
 						</div>
@@ -115,17 +119,24 @@ import Icon from '../components/Icon.astro';
 					<h2>Get Involved</h2>
 					<div class="involvement-grid">
 						<div class="involvement-card">
-							<Icon icon="person" size="2em" />
-							<h3>Want Your Resume on ResumeLink?</h3>
-							<p>Email us with your chosen template and resume content. We'll convert it into a beautiful web page for you - completely free during this early stage.</p>
-							<a href="mailto:wendy7756@outlook.com" class="cta-link">Contact Us</a>
+							<Icon icon="gallery" size="2em" />
+							<h3>Tell your story</h3>
+							<p>Let your voice be heard! Share your blog, personal story, or career journey with us. We’d love to feature it in our gallery and inspire others.</p>
+							<a href="mailto:wendy7756@outlook.com" class="cta-link">Submit Now</a>
+						</div>
+
+						<div class="involvement-card">
+							<Icon icon="rocket-launch" size="2em" />
+							<h3>Showcase Your Resume Online</h3>
+							<p>Turn your resume, CV, or portfolio into a beautiful website. Pick a template you love, send us your content, and get your pages ready to share.</p>
+							<a href="mailto:wendy7756@outlook.com" class="cta-link">Get Started</a>
 						</div>
 						
 						<div class="involvement-card">
 							<Icon icon="code" size="2em" />
 							<h3>Contribute to the Project</h3>
 							<p>Help us build the future of resumes! Submit templates, improve features, report bugs, or contribute documentation.</p>
-							<a href="https://github.com/wendy7756/resume-to-web" class="cta-link">View on GitHub</a>
+							<a href="https://github.com/wendy7756/resumelink" class="cta-link">View on GitHub</a>
 						</div>
 					</div>
 					
@@ -307,8 +318,8 @@ import Icon from '../components/Icon.astro';
 
 	.involvement-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.5rem;
 		margin-bottom: 2rem;
 	}
 

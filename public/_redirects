@@ -14,5 +14,10 @@ http://www.resumelink.cloud/* https://resumelink.cloud/:splat 301!
 ## Ensure dedicated 404 route responds with 404 (not overridden by SPA fallback)
 /404 /404.html 404
 
+## Serve directory pages without trailing slash as 200 (avoid 308 without headers)
+/roadmap /roadmap/index.html 200
+/terms /terms/index.html 200
+/privacy /privacy/index.html 200
+
 # SPA fallback for Astro static site
 /*    /index.html   200

@@ -1,8 +1,9 @@
 # Cloudflare Pages headers configuration
 # https://developers.cloudflare.com/pages/configuration/headers/
 
-# Default security/privacy headers for all pages (no robots here to avoid duplicates)
+# Default headers for all pages (ensure robots on redirects as well)
 /*
+  X-Robots-Tag: index, follow
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block

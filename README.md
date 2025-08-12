@@ -20,11 +20,19 @@ ResumeLink aims to democratize professional resume and portfolio creation. We be
 - **Preview & Browse**: Explore templates before choosing your perfect match
 - **Mobile Responsive**: All templates optimized for every device
 
+### 🖼️ Resume Gallery
+- **Showcase Platform**: Featured collection of outstanding resume examples
+- **Community Contributions**: Real resumes from professionals across industries
+- **Inspiration Hub**: Browse successful resume designs and layouts
+- **Career Stories**: Learn from others' professional journeys
+
 ### 🛠️ Technical Excellence
 - **Modern Tech Stack**: Built with Astro, TypeScript, and cutting-edge CSS
-- **Lightning Fast**: Optimized for speed and performance
-- **SEO Optimized**: Search engine friendly with structured data
+- **Lightning Fast**: Optimized for speed with lazy loading and image optimization
+- **SEO Mastery**: Complete SEO optimization with structured data, canonical URLs, and robots directives
+- **Analytics Ready**: Google Analytics integration for performance tracking
 - **Open Source**: Transparent development and community-driven
+- **Performance Focused**: Advanced lazy loading, DNS preconnect, and caching strategies
 
 ### 🌍 Accessibility
 - **Free Forever**: No hidden costs or premium barriers
@@ -40,8 +48,11 @@ Our development journey is structured in four strategic phases, each building up
 - ✅ **Astro Classic Templates**: Integrated premium Astro portfolio templates
 - ✅ **Responsive Design**: Mobile-first approach with beautiful layouts
 - ✅ **Template Gallery**: Showcase different resume & portfolio styles
+- ✅ **Resume Gallery**: Platform for showcasing community resumes
 - ✅ **Community Building**: Growing developer and designer community
-- ✅ **SEO Foundation**: Structured data, sitemap, and optimization
+- ✅ **SEO Excellence**: Complete optimization with X-Robots-Tag, canonical URLs, and structured data
+- ✅ **Performance Optimization**: Advanced image loading and caching strategies
+- ✅ **Analytics Integration**: Google Analytics tracking and insights
 
 ### 🚀 Phase 2: Template Expansion (Next 3-6 months)
 **Scaling the Template Library**
@@ -73,9 +84,21 @@ Our development journey is structured in four strategic phases, each building up
 
 Join our mission to democratize professional online presence! Whether you're a job seeker, developer, or designer, there's a place for you in the ResumeLink community.
 
-### 💼 Want Your Resume/Portfolio on ResumeLink?
+### 💼 Want Your Resume/Portfolio/Story on ResumeLink?
 
-**Personalized Service Available Now!**
+**Two Ways to Get Featured!**
+
+#### 🎯 **Submit to Our Gallery**
+Share your outstanding resume and inspire others in our community showcase!
+
+📧 **Email us** at [wendy7756@outlook.com](mailto:wendy7756@outlook.com) with:
+- 📄 **Your resume/portfolio** (PDF or image format)
+- ✨ **Brief success story** (optional but encouraged)
+- 🏢 **Industry/field** for proper categorization
+- 📝 **Permission** to feature your work
+
+#### 🛠️ **Personalized Web Conversion Service**
+Get your resume transformed into a stunning web presence!
 
 During our foundational phase, we offer personalized resume-to-web conversion services:
 
@@ -130,7 +153,9 @@ Help us build the future of online resumes! We welcome contributions from develo
 - **📧 Email**: [wendy7756@outlook.com](mailto:wendy7756@outlook.com)
 - **🔗 GitHub**: [Submit issues and PRs](https://github.com/wendy7756/resumelink)
 - **💬 Discussions**: Share ideas and get support in GitHub Discussions
-- **🌐 Website**: [Visit our live platform](https://resumelink.cloud/roadmap/) to see our roadmap
+- **🌐 Website**: [Visit our live platform](https://resumelink.cloud/) 
+- **🖼️ Gallery**: [Browse resume showcases](https://resumelink.cloud/blog/)
+- **📋 Templates**: [Explore our template collection](https://resumelink.cloud/template/)
 
 ---
 

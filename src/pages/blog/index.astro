@@ -1,164 +1,341 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
-const posts = await getCollection('blog');
+import Icon from '../../components/Icon.astro';
 ---
 
 <BaseLayout 
-	title="Blog - ResumeLink" 
-	description="Read insights from ResumeLink on design, resumes and portfolios."
-	keywords="blog,resume tips,CV advice,portfolio design,career insights,job search,professional development"
+	title="Blog - ResumeLink | Resume Tips & Career Insights"
+	description="Discover expert resume tips, career advice, and portfolio design insights. Learn how to create standout resumes and advance your professional journey."
+	keywords="blog,personal blog,resume showcase,professional insights,career development,design thoughts,developer stories"
 >
-  <div class="blog-list wrapper">
-    <header class="list-header">
-      <h1>Blog</h1>
-      <p>Insights on resume building, portfolio design, and career growth</p>
-    </header>
-    {posts.map((p) => (
-      <article class="post-card">
-        <div class="card-content">
-          <h2><a href={`/blog/${p.id}` }>{p.data.title}</a></h2>
-          <p class="desc">{p.data.description}</p>
-          <div class="post-meta">
-            <span class="author">{p.data.author || 'ResumeLink Team'}</span>
-            <span class="separator">·</span>
-            <time datetime={p.data.publishDate.toISOString()}>
-              {p.data.publishDate.toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric' 
-              })}
-            </time>
-            <span class="separator">·</span>
-            <span class="read-time">3 min read</span>
-          </div>
-        </div>
-      </article>
-    ))}
-  </div>
+	<div class="blog-page">
+		<!-- Header with background image -->
+		<div class="blog-header">
+			<div class="header-overlay">
+				<div class="header-content">
+					<p class="slogan">We Meet Here on RLOG</p>
+				</div>
+			</div>
+		</div>
 
-  <style>
-    /* Medium-inspired blog list */
-    .blog-list { 
-      max-width: 728px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem; 
-    }
-    
-    .list-header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--gray-850);
-    }
-    
-    .list-header h1 {
-      font-family: "Times New Roman", Times, serif;
-      font-size: clamp(2rem, 3vw, 2.75rem);
-      font-weight: 600;
-      color: var(--gray-0);
-      margin: 0 0 0.75rem;
-      letter-spacing: -0.02em;
-    }
-    
-    .list-header p {
-      color: var(--gray-400);
-      font-size: 1.125rem;
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    .post-card { 
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--gray-900);
-      transition: all 0.2s ease;
-    }
-    
-    .post-card:last-child {
-      border-bottom: none;
-    }
-    
-    .post-card:hover {
-      transform: translateY(-1px);
-    }
-    
-    .card-content h2 { 
-      margin: 0 0 0.75rem; 
-      font-family: "Times New Roman", Times, serif; 
-      font-size: clamp(1.25rem, 1.5vw, 1.5rem); 
-      line-height: 1.3; 
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-    
-    .card-content h2 a {
-      color: var(--gray-0);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    
-    .card-content h2 a:hover {
-      color: var(--accent-regular);
-    }
-    
-    .desc { 
-      margin: 0 0 1rem; 
-      color: var(--gray-300); 
-      line-height: 1.6;
-      font-size: 1rem;
-      font-family: "Times New Roman", Times, serif;
-    }
-    
-    .post-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.875rem;
-      color: var(--gray-500);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-    
-    .author {
-      color: var(--gray-400);
-      font-weight: 500;
-    }
-    
-    .separator {
-      color: var(--gray-600);
-    }
-    
-    .read-time {
-      color: var(--gray-500);
-    }
-    
-    /* Mobile adjustments */
-    @media (max-width: 768px) {
-      .blog-list { 
-        padding: 2rem 1rem 3rem; 
-      }
-      
-      .list-header {
-        margin-bottom: 2rem;
-      }
-      
-      .list-header h1 {
-        font-size: clamp(1.75rem, 5vw, 2.25rem);
-      }
-      
-      .list-header p {
-        font-size: 1rem;
-      }
-      
-      .post-card {
-        padding: 1.5rem 0;
-      }
-      
-      .post-meta {
-        flex-wrap: wrap;
-        gap: 0.375rem;
-      }
-    }
-  </style>
+		<!-- Main content area -->
+		<div class="blog-main">
+			<div class="wrapper">
+				<!-- Feeds stream layout -->
+				<div class="feeds-container">
+					<!-- Personal blog posts -->
+                    <a class="feed-card" href="/blog/resume-to-website-guide">
+                        <h2>How to Turn Your Resume into a Website in 10 Minutes (Free Template Included)</h2>
+                        <div class="feed-row">
+                            <div class="feed-desc">
+                                <p class="feed-description">Transform your traditional resume into a stunning, mobile-friendly website that recruiters love. No coding required.</p>
+                            </div>
+                            <div class="feed-image">
+                                <img src="/assets/stock-1.jpg" alt="Resume to Website Guide" />
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="feed-card" href="/blog/free-resume-templates">
+                        <h2>5 Free Professional Website Templates That Land More Interviews</h2>
+                        <div class="feed-row">
+                            <div class="feed-desc">
+                                <p class="feed-description">Share battle-tested resume and portfolio templates used by 10,000+ professionals. Lightning-fast and mobile-optimized.</p>
+                            </div>
+                            <div class="feed-image">
+                                <img src="/assets/stock-2.jpg" alt="Free Resume Templates" />
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="feed-card" href="/blog/personal-website-vs-resume">
+                        <h2>Why 73% of Recruiters Prefer Candidates with Personal Websites</h2>
+                        <div class="feed-row">
+                            <div class="feed-desc">
+                                <p class="feed-description">Discover how a professional website makes you 3x more likely to get interviews. Real recruiter insights included.</p>
+                            </div>
+                            <div class="feed-image">
+                                <img src="/assets/stock-3.jpg" alt="Personal Website vs Resume" />
+                            </div>
+                        </div>
+                    </a>
+
+                    <a class="feed-card" href="/blog/resume-templates-by-industry">
+                        <h2>Resume Template Guide: Match Your Industry for Maximum Impact</h2>
+                        <div class="feed-row">
+                            <div class="feed-desc">
+                                <p class="feed-description">Choose the perfect resume template for your field. From tech portfolios to finance profiles, learn what recruiters expect.</p>
+                            </div>
+                            <div class="feed-image">
+                                <img src="/assets/stock-4.jpg" alt="Resume Templates by Industry" />
+                            </div>
+                        </div>
+                    </a>
+
+                    
+				</div>
+			</div>
+		</div>
+	</div>
 </BaseLayout>
 
+<style>
+	.blog-page {
+		min-height: 100vh;
+	}
 
+	/* Override layout background for this page only: use blog header image at the very top.
+	   Keep original image size (no scaling), no curves layer. */
+    /* Page-level override: use blogheader as top background so no gradient shows above */
+    :global(.backgrounds) {
+        background: url('/assets/rlogheader.jpg') top center / 100% auto no-repeat, var(--gray-999) !important;
+        background-blend-mode: normal, normal !important;
+    }
+
+    /* Header content block (transparent; text overlays the page background image) */
+	.blog-header {
+		position: relative;
+        height: clamp(220px, 30vw, 420px); /* 更贴近示例，高度更紧凑 */
+        background: none;
+		margin-bottom: 0;
+	}
+
+	.header-overlay {
+		position: absolute;
+		top: 70%; /* 2/3 位置 */
+		left: 50%; /* 横向居中 */
+		transform: translate(-50%, -50%); /* 精确居中对齐 */
+		text-align: center;
+		color: white;
+		z-index: 2;
+		width: 100%; /* 确保文本容器有足够宽度 */
+	}
+
+	.header-content h1 {
+		font-size: var(--text-5xl);
+		font-weight: 800;
+		margin: 0 0 1rem 0;
+		letter-spacing: -0.02em;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	}
+
+	.slogan {
+    font-size: var(--text-xl);
+    font-family: "Times New Roman", Times, serif;
+		margin: 0;
+		opacity: 1;
+		font-weight: 700;
+		letter-spacing: 0.5px;
+		color: var(--gray-0);
+	}
+
+	/* Main content area */
+    .blog-main {
+        padding: 0 0 3rem 0; /* 进一步贴近header */
+		background: var(--gray-999);
+	}
+
+    .feeds-container {
+        max-width: 1360px; /* 增加容器宽度 */
+        margin: -2rem auto 0; /* 进一步向上移动 */
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+        row-gap: 2rem; /* 卡片之间的间距 */
+    }
+
+    /* Feed card layout - title on first row; second row: left description + tag, right image */
+    .feed-card {
+        background: transparent;
+        padding: 1rem;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        /* 无边框 */
+        border-radius: 0.75rem;
+        min-height: 250px;
+        text-decoration: none; /* 取消链接下划线 */
+        color: inherit; /* 继承文字颜色 */
+    }
+
+    .feed-card:visited { color: inherit; text-decoration: none; }
+    .feed-card:hover { text-decoration: none; }
+
+    .feed-row {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 1rem;
+        align-items: start;
+    }
+
+/* Hover: only change title color (medium purple) */
+.feed-card:hover > h2 { color: #8b5cf6; }
+
+    .feed-image {
+        width: 200px;
+        height: 130px; /* 统一缩小尺寸 */
+        border-radius: 0.75rem;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .feed-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 统一裁切，保持一致显示效果 */
+        transition: none;
+        display: block;
+    }
+
+/* No image hover animation */
+.feed-card:hover .feed-image img { transform: none; }
+
+    .feed-desc { min-width: 0; }
+
+.feed-card > h2 {
+        color: var(--gray-0);
+        font-family: "Times New Roman", Times, serif; /* 使用Times字体 */
+    font-size: clamp(1.15rem, 1rem + 0.8vw, 1.8rem); /* 更小一点 */
+        font-weight: 600;
+        line-height: 1.25;
+    margin: 0 0 0.5rem 0;
+        letter-spacing: 0.2px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 标题最多两行 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 固定标题区域高度，避免下面区域上移 */
+    height: calc(1.25em * 2);
+    }
+
+    .feed-description {
+        color: var(--gray-300);
+        font-family: "Times New Roman", Times, serif; /* 使用Times字体 */
+        font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+        line-height: 1.55;
+        margin: 0;
+        max-width: 56ch;
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* 描述最多五行 */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .category-tag {
+        display: inline-block;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        background: var(--gray-200);
+        padding: 0.35rem 0.75rem;
+        border-radius: 9999px;
+        letter-spacing: 0.2px;
+        text-transform: none;
+    }
+
+	.category-tag.work {
+		color: var(--gray-600);
+	}
+
+	.category-tag.product {
+		color: var(--gray-600);
+	}
+
+	.category-tag.portfolio {
+		color: var(--gray-600);
+	}
+
+    /* CTA Section - compact size, centered */
+    .submission-cta {
+        background: linear-gradient(135deg, var(--accent-subtle-overlay), var(--gray-900));
+        border: 1px solid var(--accent-regular);
+        border-radius: 0.75rem;
+        padding: 0.875rem 1.25rem;
+        text-align: center;
+        margin: 1rem auto 0;
+        max-width: 720px;
+        grid-column: 1 / -1; /* Span all columns */
+    }
+
+    .cta-content h3 {
+        color: var(--gray-0);
+        font-size: var(--text-md);
+        margin: 0.5rem 0 0.25rem 0;
+    }
+
+    .cta-content p {
+        color: var(--gray-300);
+        font-size: var(--text-sm);
+        margin: 0 0 0.75rem 0;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--accent-regular);
+        color: var(--accent-text-over);
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: var(--text-sm);
+        transition: background-color var(--theme-transition);
+    }
+
+	.cta-button:hover {
+		background: var(--accent-dark);
+	}
+
+	/* Desktop layout */
+	@media (min-width: 768px) {
+		.header-content h1 {
+			font-size: var(--text-6xl);
+		}
+
+		.slogan {
+			font-size: var(--text-2xl);
+		}
+
+		.feeds-container {
+			padding: 0 3rem;
+		}
+	}
+
+	/* Mobile layout */
+    @media (max-width: 767px) {
+		.blog-header {
+			height: 300px; /* Smaller fixed height for mobile */
+		}
+
+		.header-content h1 {
+			font-size: var(--text-3xl);
+		}
+
+		.slogan {
+			font-size: var(--text-lg);
+		}
+
+		.blog-main {
+			padding: 2rem 0;
+		}
+
+        .feeds-container {
+            padding: 0 1rem;
+            row-gap: 1.75rem;
+            grid-template-columns: 1fr; /* Single column on mobile */
+        }
+
+        .feed-card { flex-direction: column; gap: 1rem; }
+
+        .feed-image { width: 100%; height: 200px; }
+
+        .feed-content h2 { font-size: 1.35rem; }
+
+        .feed-description { font-size: 0.95rem; }
+
+		.submission-cta {
+			padding: 1.5rem;
+		}
+	}
+</style>

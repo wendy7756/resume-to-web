@@ -3,9 +3,9 @@ Allow: /
 
 # 主要页面
 Allow: /
-Allow: /about/
-Allow: /work/
+Allow: /about-wendy/
 Allow: /template/
+Allow: /blog/
 
 # 静态资源
 Allow: /assets/
@@ -24,7 +24,7 @@ Allow: /*.webp
 # Disallow: /private/
 
 # 站点地图位置
-Sitemap: https://ResumeLink.com/sitemap.xml
+Sitemap: https://resumelink.cloud/sitemap.xml
 
 # 爬取延迟（可选，避免服务器过载）
 Crawl-delay: 1

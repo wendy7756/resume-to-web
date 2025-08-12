@@ -1,0 +1,53 @@
+# Cloudflare Pages headers configuration
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Default headers for all pages
+/*
+  X-Robots-Tag: index, follow
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Main content pages - explicitly allow indexing
+/
+  X-Robots-Tag: index, follow
+
+/about-wendy/
+  X-Robots-Tag: index, follow
+
+/template/
+  X-Robots-Tag: index, follow
+
+/blog/
+  X-Robots-Tag: index, follow
+
+/blog/*
+  X-Robots-Tag: index, follow
+
+/template/*
+  X-Robots-Tag: index, follow
+
+# 404 page - should not be indexed
+/404.html
+  X-Robots-Tag: noindex, follow
+
+# Static assets - allow indexing but no specific robots directives needed
+/assets/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon/*
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sitemap and robots files
+/sitemap.xml
+  X-Robots-Tag: noindex
+  Content-Type: application/xml
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  X-Robots-Tag: noindex
+  Content-Type: text/plain
+  Cache-Control: public, max-age=3600

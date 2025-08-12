@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
-const siteUrl = 'https://ResumeLink.com'; // 替换为你的实际域名
+const siteUrl = 'https://resumelink.cloud'; // 实际域名
 
 export const GET: APIRoute = async () => {
   // 获取所有作品/模板页面
@@ -18,15 +18,9 @@ export const GET: APIRoute = async () => {
       lastmod: new Date().toISOString(),
     },
     {
-      url: 'about',
+      url: 'about-wendy',
       changefreq: 'monthly', 
       priority: '0.8',
-      lastmod: new Date().toISOString(),
-    },
-    {
-      url: 'work',
-      changefreq: 'weekly',
-      priority: '0.9',
       lastmod: new Date().toISOString(),
     },
     {
@@ -42,7 +36,7 @@ export const GET: APIRoute = async () => {
       lastmod: new Date().toISOString(),
     },
     {
-      url: 'rlog',
+      url: 'blog',
       changefreq: 'weekly',
       priority: '0.8',
       lastmod: new Date().toISOString(),
@@ -59,17 +53,11 @@ export const GET: APIRoute = async () => {
       priority: '0.3',
       lastmod: new Date().toISOString(),
     },
-    {
-      url: 'blog',
-      changefreq: 'weekly',
-      priority: '0.8',
-      lastmod: new Date().toISOString(),
-    },
   ];
 
   // 动态页面 - 作品/模板详情页
   const workPages = workEntries.map((entry) => ({
-    url: `work/${entry.id}`,
+    url: `template/${entry.id}`,
     changefreq: 'monthly',
     priority: '0.7',
     lastmod: entry.data.publishDate ? entry.data.publishDate.toISOString() : new Date().toISOString(),

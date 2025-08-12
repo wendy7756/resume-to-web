@@ -3,6 +3,10 @@
 https://www.resumelink.cloud/* https://resumelink.cloud/:splat 301!
 www.resumelink.cloud/* resumelink.cloud/:splat 301!
 
+# Custom redirects
+/about/ /about-wendy/ 301!
+/rlog/ /blog/ 301!
+
 # Force HTTPS
 http://resumelink.cloud/* https://resumelink.cloud/:splat 301!
 http://www.resumelink.cloud/* https://resumelink.cloud/:splat 301!

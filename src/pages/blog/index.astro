@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts and sort by date (newest first)
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <BaseLayout 
@@ -23,56 +28,20 @@ import Icon from '../../components/Icon.astro';
 			<div class="wrapper">
 				<!-- Feeds stream layout -->
 				<div class="feeds-container">
-					<!-- Personal blog posts -->
-                    <a class="feed-card" href="/blog/resume-to-website-guide">
-                        <h2>How to Turn Your Resume into a Website in 10 Minutes (Free Template Included)</h2>
-                        <div class="feed-row">
-                            <div class="feed-desc">
-                                <p class="feed-description">Transform your traditional resume into a stunning, mobile-friendly website that recruiters love. No coding required.</p>
-                            </div>
-                            <div class="feed-image">
-                                <img src="/assets/stock-1.jpg" alt="Resume to Website Guide" />
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="feed-card" href="/blog/free-resume-templates">
-                        <h2>5 Free Professional Website Templates That Land More Interviews</h2>
-                        <div class="feed-row">
-                            <div class="feed-desc">
-                                <p class="feed-description">Share battle-tested resume and portfolio templates used by 10,000+ professionals. Lightning-fast and mobile-optimized.</p>
-                            </div>
-                            <div class="feed-image">
-                                <img src="/assets/stock-2.jpg" alt="Free Resume Templates" />
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="feed-card" href="/blog/personal-website-vs-resume">
-                        <h2>Why 73% of Recruiters Prefer Candidates with Personal Websites</h2>
-                        <div class="feed-row">
-                            <div class="feed-desc">
-                                <p class="feed-description">Discover how a professional website makes you 3x more likely to get interviews. Real recruiter insights included.</p>
-                            </div>
-                            <div class="feed-image">
-                                <img src="/assets/stock-3.jpg" alt="Personal Website vs Resume" />
-                            </div>
-                        </div>
-                    </a>
-
-                    <a class="feed-card" href="/blog/resume-templates-by-industry">
-                        <h2>Resume Template Guide: Match Your Industry for Maximum Impact</h2>
-                        <div class="feed-row">
-                            <div class="feed-desc">
-                                <p class="feed-description">Choose the perfect resume template for your field. From tech portfolios to finance profiles, learn what recruiters expect.</p>
-                            </div>
-                            <div class="feed-image">
-                                <img src="/assets/stock-4.jpg" alt="Resume Templates by Industry" />
-                            </div>
-                        </div>
-                    </a>
-
-                    
+					<!-- Dynamic blog posts -->
+					{sortedPosts.map((post) => (
+						<a class="feed-card" href={`/blog/${post.id}`}>
+							<h2>{post.data.title}</h2>
+							<div class="feed-row">
+								<div class="feed-desc">
+									<p class="feed-description">{post.data.description}</p>
+								</div>
+								<div class="feed-image">
+									<img src={post.data.heroImage || "/assets/stock-1.jpg"} alt={post.data.title} />
+								</div>
+							</div>
+						</a>
+					))}
 				</div>
 			</div>
 		</div>

@@ -30,10 +30,14 @@ export const collections = {
         schema: z.object({
             title: z.string(),
             description: z.string(),
-            publishDate: z.coerce.date(),
+            keywords: z.string().optional(),
+            slug: z.string().optional(),
+            canonical_url: z.string().optional(),
+            robots: z.string().optional(),
             author: z.string(),
-            tags: z.array(z.string()),
+            date: z.coerce.date(),
             heroImage: z.string().optional(),
+            tags: z.array(z.string()).optional(),
         }),
     }),
 };

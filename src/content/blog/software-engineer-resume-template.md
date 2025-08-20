@@ -1,5 +1,5 @@
 ---
-title: "10 Customizable Software Engineer Resume Templates for Su..."
+title: "10 Customizable Software Engineer Resume Templates for Success"
 description: "Creating a standout resume is essential for software engineers looking to land their dream job in a competitive market.  With a variety of software engineer ..."
 keywords: "software engineer resume template, software engineer CV template, best software engineer resume template, software engineer resume examples, customizable software engineer resume template"
 slug: software-engineer-resume-template

@@ -1,5 +1,5 @@
 ---
-title: "Create Your CV Online: 5 Easy Steps for a Professional Re..."
+title: "Create Your CV Online: 5 Easy Steps for a Professional Resume"
 description: "In today’s competitive job market, having a professional CV is essential for making a strong first impression on potential employers.  Fortunately, creating ..."
 keywords: "cv online, online cv builder, free online cv maker, professional cv online, create cv online free"
 slug: online-cv-builder

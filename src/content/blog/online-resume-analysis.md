@@ -1,5 +1,5 @@
 ---
-title: "Free Online Resume Analysis: Get Your Score & Expert Tips..."
+title: "Free Online Resume Analysis: Get Your Score & Expert Tips Today!"
 description: "In an increasingly competitive job market, having a standout resume is crucial.  But how do you know if your resume is effective? Enter free online resume an..."
 keywords: "online resume analysis, resume analysis tool, free resume checker online, AI resume analysis, ATS resume analysis"
 slug: online-resume-analysis

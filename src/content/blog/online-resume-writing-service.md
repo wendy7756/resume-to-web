@@ -1,5 +1,5 @@
 ---
-title: "Top 5 Online Resume Writing Services: Affordable & Profes..."
+title: "Top 5 Online Resume Writing Services: Affordable & Professional Picks"
 description: "In todays competitive job market, having a standout resume is essential.  Whether you’re a recent graduate or a seasoned professional, an effective resume ca..."
 keywords: "online resume writing service, best online resume writing service, professional resume writing services, affordable resume writing service, how to choose an online resume writing service"
 slug: online-resume-writing-service
